@@ -51,13 +51,13 @@ export function About({ lang }: AboutProps) {
                 transition={{ duration: 0.6, delay: 0.25 + i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
                 className="p-6 rounded-2xl"
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "#18181B",
+                  border: "1px solid #27272A",
                 }}
               >
                 <div
                   className="text-white mb-1"
-                  style={{ fontSize: "2.5rem", fontWeight: 600, letterSpacing: "-0.04em" }}
+                  style={{ fontSize: "2.5rem", fontWeight: 600, letterSpacing: "-0.04em", color: "#E6C76A" }}
                 >
                   {stat.value}
                 </div>

@@ -8,25 +8,26 @@ import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
+import { Hobby } from "./components/Hobby";
 import { Footer } from "./components/Footer";
 
 {/* MARKER-MAKE-KIT-INVOKED */}
 
 const Divider = () => (
   <div className="max-w-6xl mx-auto px-6">
-    <div style={{ height: "1px", background: "rgba(255,255,255,0.04)" }} />
+    <div style={{ height: "1px", background: "rgba(39,39,42,0.75)" }} />
   </div>
 );
 
 export default function App() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("it");
 
   return (
     <div
       className="min-h-screen"
       style={{
         background: "#09090B",
-        color: "#F8F8F8",
+        color: "#FAFAFA",
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       }}
     >
@@ -43,6 +44,8 @@ export default function App() {
         <Skills lang={lang} />
         <Divider />
         <Contact lang={lang} />
+        <Divider />
+        <Hobby lang={lang} />
       </main>
       <Footer lang={lang} />
     </div>

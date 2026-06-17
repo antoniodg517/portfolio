@@ -18,6 +18,7 @@ export function Nav({ lang, onLangChange }: NavProps) {
     { label: t.experience, href: "#experience" },
     { label: t.skills, href: "#skills" },
     { label: t.contact, href: "#contact" },
+    { label: t.hobby, href: "#hobby" },
   ];
 
   useEffect(() => {
@@ -41,9 +42,9 @@ export function Nav({ lang, onLangChange }: NavProps) {
       <div
         className="transition-all duration-500"
         style={{
-          background: scrolled ? "rgba(9,9,11,0.85)" : "transparent",
+          background: scrolled ? "rgba(9,9,11,0.88)" : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid #27272A" : "1px solid transparent",
         }}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -75,18 +76,18 @@ export function Nav({ lang, onLangChange }: NavProps) {
             <div
               className="flex items-center rounded-full p-0.5 text-xs"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#18181B",
+                border: "1px solid #27272A",
               }}
             >
-              {(["en", "it"] as Lang[]).map((l) => (
+              {(["it", "en"] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => onLangChange(l)}
                   className="px-3 py-1 rounded-full uppercase transition-all duration-200"
                   style={{
-                    background: lang === l ? "rgba(255,255,255,0.12)" : "transparent",
-                    color: lang === l ? "#fff" : "rgba(255,255,255,0.35)",
+                    background: lang === l ? "rgba(212,175,55,0.16)" : "transparent",
+                    color: lang === l ? "#E6C76A" : "#A1A1AA",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -99,15 +100,15 @@ export function Nav({ lang, onLangChange }: NavProps) {
               onClick={() => handleNav("#contact")}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm transition-all duration-200"
               style={{
-                background: "rgba(10,132,255,0.12)",
-                border: "1px solid rgba(10,132,255,0.3)",
-                color: "#0A84FF",
+                background: "rgba(212,175,55,0.12)",
+                border: "1px solid rgba(212,175,55,0.3)",
+                color: "#D4AF37",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "rgba(10,132,255,0.2)";
+                (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.2)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "rgba(10,132,255,0.12)";
+                (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.12)";
               }}
             >
               {t.cta}
@@ -136,9 +137,9 @@ export function Nav({ lang, onLangChange }: NavProps) {
             transition={{ duration: 0.2 }}
             className="md:hidden px-6 py-6 flex flex-col gap-4"
             style={{
-              background: "rgba(9,9,11,0.96)",
+              background: "rgba(9,9,11,0.97)",
               backdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              borderBottom: "1px solid #27272A",
             }}
           >
             {navLinks.map((link) => (
@@ -152,15 +153,15 @@ export function Nav({ lang, onLangChange }: NavProps) {
             ))}
             {/* Mobile lang toggle */}
             <div className="flex gap-2 pt-2">
-              {(["en", "it"] as Lang[]).map((l) => (
+              {(["it", "en"] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => onLangChange(l)}
                   className="px-4 py-1.5 rounded-full text-xs uppercase transition-all duration-200"
                   style={{
-                    background: lang === l ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: lang === l ? "#fff" : "rgba(255,255,255,0.35)",
+                    background: lang === l ? "rgba(212,175,55,0.16)" : "#18181B",
+                    border: "1px solid #27272A",
+                    color: lang === l ? "#E6C76A" : "#A1A1AA",
                     letterSpacing: "0.08em",
                   }}
                 >

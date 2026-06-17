@@ -2,11 +2,12 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { type Lang, translations } from "../i18n";
 
-const itemTypes = ["work", "work", "edu"] as const;
+const itemTypes = ["work", "work", "edu", "edu"] as const;
 const itemTags = [
-  ["React", "TypeScript", "AWS", "CI/CD"],
-  ["Vue.js", "Python", "Django", "PostgreSQL"],
-  ["Algoritmi", "ML", "Systems Design"],
+  ["Web development", "UX", "Maintenance"],
+  ["IT support", "Operations", "Website management"],
+  ["Java", "SQL", "AI", "HRI", "Git"],
+  ["Software", "Networks", "Databases"],
 ];
 
 interface ExperienceProps { lang: Lang }
@@ -33,8 +34,8 @@ function TimelineItem({
       <div
         className="absolute left-0 top-1 w-2 h-2 rounded-full"
         style={{
-          background: type === "work" ? "#0A84FF" : "rgba(255,255,255,0.2)",
-          boxShadow: type === "work" ? "0 0 12px rgba(10,132,255,0.5)" : "none",
+          background: type === "work" ? "#D4AF37" : "#2563EB",
+          boxShadow: type === "work" ? "0 0 12px rgba(212,175,55,0.5)" : "0 0 12px rgba(37,99,235,0.35)",
         }}
       />
       <div className="pb-12">
@@ -45,9 +46,9 @@ function TimelineItem({
           <span
             className="px-2.5 py-0.5 rounded-full text-xs mt-0.5"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(255,255,255,0.35)",
+              background: "#18181B",
+              border: "1px solid #27272A",
+              color: "#A1A1AA",
             }}
           >
             {item.period}
@@ -61,9 +62,9 @@ function TimelineItem({
               key={tag}
               className="px-2.5 py-0.5 rounded-full text-xs"
               style={{
-                background: "rgba(10,132,255,0.06)",
-                border: "1px solid rgba(10,132,255,0.12)",
-                color: "rgba(10,132,255,0.8)",
+                background: type === "work" ? "rgba(212,175,55,0.08)" : "rgba(37,99,235,0.12)",
+                border: type === "work" ? "1px solid rgba(212,175,55,0.18)" : "1px solid rgba(37,99,235,0.28)",
+                color: type === "work" ? "#E6C76A" : "#2563EB",
               }}
             >
               {tag}
@@ -105,7 +106,7 @@ export function Experience({ lang }: ExperienceProps) {
           <div className="relative">
             <div
               className="absolute left-[3px] top-2 bottom-0 w-px"
-              style={{ background: "rgba(255,255,255,0.06)" }}
+              style={{ background: "#27272A" }}
             />
             {t.items.map((item, i) => (
               <TimelineItem key={item.role} item={item} type={itemTypes[i]} tags={itemTags[i]} index={i} />

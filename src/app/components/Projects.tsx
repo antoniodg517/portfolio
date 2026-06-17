@@ -5,26 +5,29 @@ import { type Lang, translations } from "../i18n";
 
 const projectMeta = [
   {
-    tags: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format",
+    tags: ["Kotlin", "Java", "LLMs", "Furhat", "sEMG"],
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop&auto=format",
+    href: "https://github.com/antoniodg517/the-postural-interview",
   },
   {
-    tags: ["TypeScript", "Go", "Terraform", "AWS", "GitHub Actions"],
-    image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&h=500&fit=crop&auto=format",
+    tags: ["Web development", "UX", "Content", "Maintenance"],
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=500&fit=crop&auto=format",
+    href: "https://ilmeridianosport.it",
   },
   {
-    tags: ["Python", "FastAPI", "React", "OpenAI", "SQLite"],
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=500&fit=crop&auto=format",
+    tags: ["IT support", "Maintenance", "Operations", "Website"],
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format",
+    href: "",
   },
 ];
 
 interface ProjectsProps { lang: Lang }
 
 function ProjectCard({
-  title, description, year, status, tags, image, index,
+  title, description, year, status, tags, image, href, index,
 }: {
   title: string; description: string; year: string; status: string;
-  tags: string[]; image: string; index: number;
+  tags: string[]; image: string; href: string; index: number;
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -37,11 +40,11 @@ function ProjectCard({
       transition={{ duration: 0.8, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
       className="group relative rounded-3xl overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.02)",
-        border: "1px solid rgba(255,255,255,0.06)",
+        background: "#18181B",
+        border: "1px solid #27272A",
       }}
     >
-      <div className="relative overflow-hidden" style={{ height: "240px", background: "#111113" }}>
+      <div className="relative overflow-hidden" style={{ height: "240px", background: "#18181B" }}>
         <img
           src={image}
           alt={title}
@@ -50,15 +53,15 @@ function ProjectCard({
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(9,9,11,0.9) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(30,58,138,0.08) 0%, transparent 40%, rgba(9,9,11,0.92) 100%)" }}
         />
         <div className="absolute top-4 right-4 flex items-center gap-2">
           <span
             className="px-2.5 py-1 rounded-full text-xs"
             style={{
-              background: "rgba(9,9,11,0.7)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "rgba(255,255,255,0.5)",
+              background: "rgba(9,9,11,0.76)",
+              border: "1px solid #27272A",
+              color: "#A1A1AA",
               backdropFilter: "blur(8px)",
             }}
           >
@@ -67,9 +70,9 @@ function ProjectCard({
           <span
             className="px-2.5 py-1 rounded-full text-xs"
             style={{
-              background: "rgba(10,132,255,0.15)",
-              border: "1px solid rgba(10,132,255,0.2)",
-              color: "#0A84FF",
+              background: "rgba(212,175,55,0.15)",
+              border: "1px solid rgba(212,175,55,0.2)",
+              color: "#E6C76A",
               backdropFilter: "blur(8px)",
             }}
           >
@@ -86,12 +89,16 @@ function ProjectCard({
           >
             {title}
           </h3>
-          <button
-            className="opacity-0 group-hover:opacity-100 transition-all duration-300 p-2 rounded-full hover:bg-white/5"
-            style={{ color: "rgba(255,255,255,0.4)" }}
+          <a
+            href={href || undefined}
+            target={href ? "_blank" : undefined}
+            rel={href ? "noopener noreferrer" : undefined}
+            className="opacity-0 group-hover:opacity-100 transition-all duration-300 p-2 rounded-full"
+            style={{ color: "#E6C76A", background: "rgba(212,175,55,0.08)" }}
+            aria-label={href ? `Open ${title}` : title}
           >
             <ArrowUpRight size={18} />
-          </button>
+          </a>
         </div>
         <p className="text-white/40 leading-relaxed mb-6 text-sm">{description}</p>
         <div className="flex flex-wrap gap-2">
@@ -100,9 +107,9 @@ function ProjectCard({
               key={tag}
               className="px-3 py-1 rounded-full text-xs"
               style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "rgba(255,255,255,0.4)",
+                background: "#09090B",
+                border: "1px solid #27272A",
+                color: "#A1A1AA",
               }}
             >
               {tag}
@@ -148,6 +155,7 @@ export function Projects({ lang }: ProjectsProps) {
               {...item}
               tags={projectMeta[i].tags}
               image={projectMeta[i].image}
+              href={projectMeta[i].href}
             />
           ))}
         </div>

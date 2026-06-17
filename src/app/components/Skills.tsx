@@ -3,10 +3,10 @@ import { motion, useInView } from "motion/react";
 import { type Lang, translations } from "../i18n";
 
 const skillGroups = [
-  { category: { en: "Languages", it: "Linguaggi" }, skills: ["TypeScript", "JavaScript", "Python", "Go", "Java", "SQL"] },
-  { category: { en: "Frontend", it: "Frontend" }, skills: ["React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion", "WebGL"] },
-  { category: { en: "Backend & Cloud", it: "Backend & Cloud" }, skills: ["Node.js", "FastAPI", "Django", "PostgreSQL", "Redis", "AWS", "Docker", "Kubernetes"] },
-  { category: { en: "Tools & Practices", it: "Strumenti & Metodologie" }, skills: ["Git", "GitHub Actions", "Terraform", "Figma", "Agile", "TDD"] },
+  { category: { en: "Languages", it: "Linguaggi" }, skills: ["Java", "JavaScript", "Python", "Kotlin", "PHP", "SQL"] },
+  { category: { en: "Web & Databases", it: "Web & Database" }, skills: ["HTML", "CSS", "Web development", "MySQL", "Git", "Linux"] },
+  { category: { en: "AI & Research", it: "AI & Ricerca" }, skills: ["Large Language Models", "Prompt engineering", "Human-Robot Interaction", "AI-assisted development", "GitHub Copilot"] },
+  { category: { en: "Professional Skills", it: "Competenze trasversali" }, skills: ["Problem solving", "Team working", "Cybersecurity", "Project Management", "Figma Basics"] },
 ];
 
 interface SkillsProps { lang: Lang }
@@ -21,8 +21,8 @@ export function Skills({ lang }: SkillsProps) {
       <div
         className="max-w-6xl mx-auto py-20 px-8 md:px-16 rounded-3xl"
         style={{
-          background: "rgba(255,255,255,0.015)",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "linear-gradient(135deg, rgba(24,24,27,0.95) 0%, rgba(30,58,138,0.12) 100%)",
+          border: "1px solid #27272A",
         }}
       >
         <motion.div
@@ -63,19 +63,19 @@ export function Skills({ lang }: SkillsProps) {
                     transition={{ duration: 0.4, delay: 0.2 + gi * 0.06 + si * 0.04, ease: [0.25, 0.1, 0.25, 1] }}
                     className="px-3.5 py-1.5 rounded-full text-sm cursor-default transition-colors duration-200"
                     style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      color: "rgba(255,255,255,0.6)",
+                      background: "#09090B",
+                      border: "1px solid #27272A",
+                      color: "#A1A1AA",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.background = "rgba(10,132,255,0.1)";
-                      (e.currentTarget as HTMLSpanElement).style.border = "1px solid rgba(10,132,255,0.2)";
-                      (e.currentTarget as HTMLSpanElement).style.color = "#0A84FF";
+                      (e.currentTarget as HTMLSpanElement).style.background = "rgba(212,175,55,0.1)";
+                      (e.currentTarget as HTMLSpanElement).style.border = "1px solid rgba(212,175,55,0.2)";
+                      (e.currentTarget as HTMLSpanElement).style.color = "#D4AF37";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.background = "rgba(255,255,255,0.05)";
-                      (e.currentTarget as HTMLSpanElement).style.border = "1px solid rgba(255,255,255,0.08)";
-                      (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.6)";
+                      (e.currentTarget as HTMLSpanElement).style.background = "#09090B";
+                      (e.currentTarget as HTMLSpanElement).style.border = "1px solid #27272A";
+                      (e.currentTarget as HTMLSpanElement).style.color = "#A1A1AA";
                     }}
                   >
                     {skill}
