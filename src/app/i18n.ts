@@ -106,6 +106,7 @@ export const translations = {
       headline2: "web, IT and AI.",
       sub: "I'm based in Poggiomarino (NA) and open to opportunities in web development, IT support, and AI-assisted software development.",
       links: [
+        { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
         { label: "Project", sub: "The Postural Interview" },
         { label: "CV", sub: "Download PDF" },
@@ -256,6 +257,7 @@ export const translations = {
       headline2: "web, IT e AI.",
       sub: "Sono a Poggiomarino (NA) e sono aperto a opportunità in sviluppo web, supporto IT e sviluppo software assistito dall'AI.",
       links: [
+        { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
         { label: "Progetto", sub: "The Postural Interview" },
         { label: "CV", sub: "Scarica PDF" },

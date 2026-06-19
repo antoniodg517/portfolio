@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { Download, Github, FolderGit2, ArrowUpRight } from "lucide-react";
+import { Download, Github, FolderGit2, Linkedin, ArrowUpRight } from "lucide-react";
 import { type Lang, translations } from "../i18n";
 
-const linkIcons = [Github, FolderGit2, Download];
+const linkIcons = [Linkedin, Github, FolderGit2, Download];
 const linkHrefs = [
+  "https://www.linkedin.com/in/antonio-del-giudice-1a7069387/",
   "https://github.com/antoniodg517",
   "https://github.com/antoniodg517/the-postural-interview",
   "/Antonio_Del_Giudice_CV.pdf",
