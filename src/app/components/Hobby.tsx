@@ -160,7 +160,7 @@ export function Hobby({ lang }: HobbyProps) {
         </motion.div>
 
         <div
-          className="relative min-h-[760px] overflow-hidden"
+          className="relative min-h-[820px] sm:min-h-[760px] overflow-hidden"
           style={{
             background:
               "radial-gradient(circle at 50% 32%, #202020 0%, #101010 44%, #000000 100%)",
@@ -180,9 +180,9 @@ export function Hobby({ lang }: HobbyProps) {
           />
 
           <div
-            className="absolute inset-x-0 bottom-0 z-30 h-56"
+            className="absolute inset-x-0 bottom-0 z-30 h-72 sm:h-56"
             style={{
-              background: "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0) 100%)",
+              background: "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.97) 52%, rgba(0,0,0,0) 100%)",
             }}
           />
 
@@ -266,7 +266,7 @@ export function Hobby({ lang }: HobbyProps) {
                 <p className="mb-2 text-[11px] uppercase" style={{ color: "#FFCE3E", letterSpacing: "0.16em" }}>
                   {t.items[active].kicker}
                 </p>
-                <p className="line-clamp-2 text-sm leading-relaxed text-white/70">
+                <p className="text-sm leading-relaxed text-white/70">
                   {t.items[active].description}
                 </p>
               </motion.div>

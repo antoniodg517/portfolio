@@ -51,10 +51,19 @@ export function Nav({ lang, onLangChange }: NavProps) {
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-sm uppercase text-white hover:text-[#FFC000] transition-colors duration-200"
-            style={{ letterSpacing: "0.16em" }}
+            className="transition-opacity duration-200 hover:opacity-70"
+            aria-label="Antonio Del Giudice — home"
           >
-            ADG
+            <img
+              src="/adg-logo.png"
+              alt="ADG"
+              style={{
+                height: "32px",
+                width: "auto",
+                mixBlendMode: "screen",
+              }}
+              draggable={false}
+            />
           </button>
 
           <nav className="hidden md:flex items-center gap-8">
