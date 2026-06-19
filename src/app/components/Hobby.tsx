@@ -7,7 +7,7 @@ interface HobbyProps { lang: Lang }
 const JERSEY_SRC = "/hobby-assets/jersey.png";
 const BARBELL_SRC = "/hobby-assets/barbell.png";
 const RONALDO_CARD_SRC = "/hobby-assets/psa-ronaldo-front.jpg";
-const BACKPACK_SRC = "/hobby-assets/backpack.webp";
+const BACKPACK_SRC = "/hobby-assets/backpack-north.png";
 
 function ProductVisual({ src, alt, small = false }: { src: string; alt: string; small?: boolean }) {
   return (
@@ -99,7 +99,38 @@ function JerseyVisual({ small = false }: { small?: boolean }) {
 }
 
 function BackpackVisual({ small = false }: { small?: boolean }) {
-  return <ProductVisual src={BACKPACK_SRC} alt="North Face Borealis backpack" small={small} />;
+  return (
+    <div className="relative flex h-full w-full items-center justify-center">
+      <div
+        className="absolute rounded-full"
+        style={{
+          top: "10%", left: "15%", right: "15%", bottom: "10%",
+          background: "radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute rounded-full"
+        style={{
+          bottom: small ? "2%" : "-3%",
+          width: small ? "58%" : "72%",
+          height: small ? "9%" : "13%",
+          background: "rgba(0,0,0,0.52)",
+          filter: "blur(22px)",
+        }}
+      />
+      <img
+        src={BACKPACK_SRC}
+        alt="North Face Borealis backpack"
+        className="relative block h-full w-full select-none object-contain"
+        draggable={false}
+        style={{
+          filter: small
+            ? "brightness(1.06) drop-shadow(0 12px 10px rgba(0,0,0,0.5))"
+            : "brightness(1.12) drop-shadow(0 0 28px rgba(255,255,255,0.08)) drop-shadow(0 28px 20px rgba(0,0,0,0.55))",
+        }}
+      />
+    </div>
+  );
 }
 
 const visuals = [BarbellVisual, CardVisual, JerseyVisual, BackpackVisual];
