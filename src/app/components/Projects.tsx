@@ -6,12 +6,12 @@ import { type Lang, translations } from "../i18n";
 const projectMeta = [
   {
     tags: ["Kotlin", "Java", "LLMs", "Furhat", "sEMG"],
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop&auto=format",
+    image: "/project-assets/furhat.jpg",
     href: "https://github.com/antoniodg517/the-postural-interview",
   },
   {
     tags: ["Web development", "UX", "Content", "Maintenance"],
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=500&fit=crop&auto=format",
+    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=500&fit=crop&auto=format",
     href: "https://ilmeridianosport.it",
   },
   {
@@ -89,16 +89,18 @@ function ProjectCard({
           >
             {title}
           </h3>
-          <a
-            href={href || undefined}
-            target={href ? "_blank" : undefined}
-            rel={href ? "noopener noreferrer" : undefined}
-            className="rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2"
-            style={{ color: "#000000", background: "#FFC000" }}
-            aria-label={href ? `Open ${title}` : title}
-          >
-            <ArrowUpRight size={18} />
-          </a>
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2"
+              style={{ color: "#000000", background: "#FFC000" }}
+              aria-label={`Open ${title}`}
+            >
+              <ArrowUpRight size={18} />
+            </a>
+          )}
         </div>
         <p className="text-white/55 leading-relaxed mb-6 text-sm">{description}</p>
         <div className="flex flex-wrap gap-2">

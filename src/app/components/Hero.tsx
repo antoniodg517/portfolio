@@ -481,7 +481,6 @@ export function Hero({ lang }: HeroProps) {
               >
                 <div>
                   <p className="text-white text-xs font-medium">Antonio Del Giudice</p>
-                  <p className="text-white/40 text-[11px]">Poggiomarino, Italy</p>
                 </div>
                 <div className="w-2 h-2 rounded-full" style={{ background: "#4ADE80", boxShadow: "0 0 6px #4ADE80" }} />
               </motion.div>
