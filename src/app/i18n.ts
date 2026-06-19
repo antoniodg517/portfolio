@@ -119,25 +119,25 @@ export const translations = {
           title: "Bodybuilding",
           kicker: "Training & discipline",
           description:
-            "In my free time I dedicate myself to bodybuilding and weight training, a passion that over the years has also become a professional experience and a personal field of study. I have explored topics related to movement biomechanics, posture and training programming, developing a solid understanding of the technical aspects that influence performance and physical wellbeing. This experience helped me develop determination, planning skills, attention to detail and a mindset focused on continuous improvement.",
+            "I train with weights and follow bodybuilding with dedication and consistency. A passion that has developed my discipline, attention to detail and a mindset focused on continuous improvement.",
         },
         {
           title: "Trading Cards",
           kicker: "Sports memorabilia",
           description:
-            "I am passionate about sports trading cards and football memorabilia. This interest combines sport, research, market analysis and attention to detail, with a particular focus on modern football collecting and limited-run editions.",
+            "I collect sports trading cards and football memorabilia. A hobby that combines sport, market research and attention to detail, with a focus on modern collecting and limited-run editions.",
         },
         {
           title: "Real Madrid",
           kicker: "Supporter",
           description:
-            "Real Madrid Supporter. I am fascinated by the culture of excellence, ambition and continuous improvement that distinguishes one of the most iconic clubs in the world.",
+            "Real Madrid Supporter. Fascinated by the culture of excellence, ambition and relentless improvement that distinguishes one of the most iconic clubs in the world.",
         },
         {
           title: "Backpacking",
           kicker: "Travel & cultures",
           description:
-            "Backpacking & Travel. Exploring new countries and cultures allows me to develop curiosity, adaptability and open-mindedness, qualities I consider fundamental both in life and at work.",
+            "Backpacking & Travel. Exploring new countries and cultures develops curiosity, adaptability and open-mindedness — qualities I consider fundamental both in life and at work.",
         },
       ],
     },
@@ -261,13 +261,13 @@ export const translations = {
           title: "Bodybuilding",
           kicker: "Allenamento & disciplina",
           description:
-            "Nel tempo libero mi dedico al bodybuilding e all’allenamento con i pesi, una passione che negli anni è diventata anche un’esperienza professionale e un ambito di studio personale. Ho approfondito temi legati alla biomeccanica del movimento, alla postura e alla programmazione dell’allenamento, sviluppando una solida comprensione degli aspetti tecnici che influenzano performance e benessere fisico. Questa esperienza mi ha aiutato a sviluppare determinazione, capacità di pianificazione, attenzione ai dettagli e una mentalità orientata al miglioramento continuo.",
+            "Mi alleno con i pesi e seguo il bodybuilding con dedizione e costanza. Una passione che ha sviluppato la mia disciplina, attenzione ai dettagli e una mentalità orientata al miglioramento continuo.",
         },
         {
           title: "Trading Card",
           kicker: "Memorabilia sportiva",
           description:
-            "Appassionato di trading card sportive e memorabilia calcistica. Un interesse che unisce sport, ricerca, analisi del mercato e attenzione ai dettagli, con particolare focus sul collezionismo calcistico moderno e sulle edizioni a tiratura limitata.",
+            "Appassionato di trading card sportive e memorabilia calcistica. Un interesse che unisce sport, ricerca di mercato e attenzione ai dettagli, con focus sul collezionismo moderno e le edizioni limitate.",
         },
         {
           title: "Real Madrid",
@@ -279,7 +279,7 @@ export const translations = {
           title: "Backpacking",
           kicker: "Travel",
           description:
-            "Backpacking & Travel. Esplorare nuovi Paesi e culture mi permette di sviluppare curiosità, adattabilità e apertura mentale, qualità che considero fondamentali sia nella vita che nel lavoro.",
+            "Backpacking & Travel. Esplorare nuovi Paesi e culture sviluppa curiosità, adattabilità e apertura mentale — qualità che considero fondamentali sia nella vita che nel lavoro.",
         },
       ],
     },

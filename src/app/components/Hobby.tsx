@@ -4,42 +4,37 @@ import { type Lang, translations } from "../i18n";
 
 interface HobbyProps { lang: Lang }
 
-const CARD_INDEX = 1;
+const JERSEY_SRC = "/hobby-assets/jersey.png";
+const BARBELL_SRC = "/hobby-assets/barbell.png";
 const RONALDO_CARD_SRC = "/hobby-assets/psa-ronaldo-front.jpg";
 const BACKPACK_SRC = "/hobby-assets/backpack.webp";
 
-function BarbellVisual({ small = false }: { small?: boolean }) {
+function ProductVisual({ src, alt, small = false }: { src: string; alt: string; small?: boolean }) {
   return (
-    <svg viewBox="0 0 420 260" className="w-full h-full" role="img" aria-label="Barbell">
-      <defs>
-        <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FAFAFA" />
-          <stop offset="35%" stopColor="#A1A1AA" />
-          <stop offset="70%" stopColor="#27272A" />
-          <stop offset="100%" stopColor="#FAFAFA" />
-        </linearGradient>
-        <linearGradient id="plate" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#27272A" />
-          <stop offset="50%" stopColor="#09090B" />
-          <stop offset="100%" stopColor="#18181B" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="210" cy="205" rx={small ? "130" : "170"} ry="18" fill="rgba(0,0,0,0.32)" />
-      <rect x="72" y="119" width="276" height="18" rx="9" fill="url(#steel)" />
-      {[34, 58, 318, 342].map((x, i) => (
-        <rect key={x} x={x} y={70 + (i % 2) * 7} width="30" height={i % 2 ? 106 : 120} rx="9" fill="url(#plate)" stroke="#27272A" strokeWidth="3" />
-      ))}
-      <rect x="95" y="100" width="24" height="56" rx="7" fill="#18181B" stroke="#A1A1AA" strokeWidth="2" />
-      <rect x="301" y="100" width="24" height="56" rx="7" fill="#18181B" stroke="#A1A1AA" strokeWidth="2" />
-      <rect x="150" y="116" width="120" height="24" rx="12" fill="rgba(212,175,55,0.15)" />
-      <path d="M153 130h114" stroke="#E6C76A" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
-      {!small && (
-        <g opacity="0.42">
-          <path d="M108 88c18-28 46-42 84-42" stroke="#D4AF37" strokeWidth="3" fill="none" />
-          <path d="M229 47c40 3 68 21 84 54" stroke="#2563EB" strokeWidth="3" fill="none" />
-        </g>
-      )}
-    </svg>
+    <div className="relative flex h-full w-full items-center justify-center">
+      <div
+        className="absolute rounded-full"
+        style={{
+          bottom: small ? "2%" : "-3%",
+          width: small ? "58%" : "72%",
+          height: small ? "9%" : "13%",
+          background: "rgba(0,0,0,0.52)",
+          filter: "blur(22px)",
+        }}
+      />
+      <img
+        src={src}
+        alt={alt}
+        className="relative block h-full w-full select-none object-contain"
+        draggable={false}
+        style={{
+          mixBlendMode: "multiply",
+          filter: small
+            ? "drop-shadow(0 14px 10px rgba(0,0,0,0.28))"
+            : "drop-shadow(0 30px 22px rgba(0,0,0,0.44))",
+        }}
+      />
+    </div>
   );
 }
 
@@ -95,60 +90,16 @@ function CardVisual({ small = false }: { small?: boolean }) {
   );
 }
 
+function BarbellVisual({ small = false }: { small?: boolean }) {
+  return <ProductVisual src={BARBELL_SRC} alt="45 LBS barbell plate" small={small} />;
+}
+
 function JerseyVisual({ small = false }: { small?: boolean }) {
-  return (
-    <svg viewBox="0 0 360 260" className="w-full h-full" role="img" aria-label="White football jersey">
-      <defs>
-        <linearGradient id="jerseyWhite" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FAFAFA" />
-          <stop offset="55%" stopColor="#E8E8EA" />
-          <stop offset="100%" stopColor="#A1A1AA" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="180" cy="226" rx={small ? "82" : "126"} ry="14" fill="rgba(0,0,0,0.35)" />
-      <path d="M118 46l37 15c8 6 42 6 50 0l37-15 48 38-34 50-25-17 9 104H120l9-104-25 17-34-50 48-38z" fill="url(#jerseyWhite)" stroke="#27272A" strokeWidth="3" />
-      <path d="M148 56c10 20 54 20 64 0" fill="none" stroke="#18181B" strokeWidth="6" strokeLinecap="round" />
-      <path d="M104 78l30 38M256 116l30-38" stroke="#D4AF37" strokeWidth="6" strokeLinecap="round" />
-      <path d="M114 64l26 9M246 73l26-9" stroke="#2563EB" strokeWidth="5" strokeLinecap="round" />
-      {!small && (
-        <>
-          <text x="180" y="132" textAnchor="middle" fontSize="22" fontWeight="700" fill="#18181B">MADRID</text>
-          <text x="180" y="156" textAnchor="middle" fontSize="12" letterSpacing="3" fill="#1E3A8A">2026</text>
-        </>
-      )}
-      <circle cx="218" cy="94" r="13" fill="none" stroke="#D4AF37" strokeWidth="3" />
-      <path d="M210 94h16M218 86v16" stroke="#D4AF37" strokeWidth="2" />
-    </svg>
-  );
+  return <ProductVisual src={JERSEY_SRC} alt="Real Madrid jersey" small={small} />;
 }
 
 function BackpackVisual({ small = false }: { small?: boolean }) {
-  return (
-    <div className="relative flex h-full w-full items-center justify-center" role="img" aria-label="Black North Face backpack">
-      <div
-        className="absolute rounded-full"
-        style={{
-          bottom: small ? "3%" : "-2%",
-          width: small ? "62%" : "72%",
-          height: small ? "12%" : "15%",
-          background: "rgba(0,0,0,0.56)",
-          filter: "blur(20px)",
-        }}
-      />
-      <img
-        src={BACKPACK_SRC}
-        alt="Black North Face backpack"
-        className="relative block h-full w-auto select-none"
-        draggable={false}
-        style={{
-          mixBlendMode: "multiply",
-          filter: small
-            ? "contrast(1.18) brightness(1.02) drop-shadow(0 22px 18px rgba(0,0,0,0.38))"
-            : "contrast(1.2) brightness(1.04) drop-shadow(0 42px 30px rgba(0,0,0,0.48))",
-        }}
-      />
-    </div>
-  );
+  return <ProductVisual src={BACKPACK_SRC} alt="North Face Borealis backpack" small={small} />;
 }
 
 const visuals = [BarbellVisual, CardVisual, JerseyVisual, BackpackVisual];
@@ -161,9 +112,6 @@ export function Hobby({ lang }: HobbyProps) {
   const ActiveVisual = visuals[active];
   const PrevVisual = visuals[(active + visuals.length - 1) % visuals.length];
   const NextVisual = visuals[(active + 1) % visuals.length];
-  const activeIsCard = active === CARD_INDEX;
-  const activeIsBackpack = active === 3;
-  const activeIsVertical = activeIsCard || activeIsBackpack;
 
   return (
     <section id="hobby" className="py-32 px-6">
@@ -199,22 +147,24 @@ export function Hobby({ lang }: HobbyProps) {
                 "linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.7))",
             }}
           />
+
           <div
             className="absolute inset-x-0 bottom-0 z-30 h-56"
             style={{
               background: "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0) 100%)",
             }}
           />
+
           <div
-            className="absolute left-1/2 top-[420px] z-10 h-24 w-[620px] -translate-x-1/2 rounded-full"
+            className="absolute left-1/2 top-[410px] z-10 h-24 w-[580px] -translate-x-1/2 rounded-full"
             style={{
-              background: activeIsVertical ? "rgba(0,0,0,0.58)" : "rgba(0,0,0,0.42)",
+              background: "rgba(0,0,0,0.48)",
               filter: "blur(34px)",
             }}
           />
 
           <div
-            className="pointer-events-none absolute left-1/2 top-[210px] z-10 w-[1280px] -translate-x-1/2 text-center"
+            className="pointer-events-none absolute left-1/2 top-[200px] z-10 w-[1280px] -translate-x-1/2 text-center"
             aria-hidden="true"
           >
             <AnimatePresence mode="wait">
@@ -227,12 +177,10 @@ export function Hobby({ lang }: HobbyProps) {
                 className="font-light"
                 style={{
                   color: "rgba(255,255,255,0.9)",
-                  fontSize: activeIsVertical
-                    ? "clamp(4rem, 9vw, 7rem)"
-                    : "clamp(4rem, 10vw, 7.5rem)",
+                  fontSize: "clamp(4rem, 10vw, 7.5rem)",
                   letterSpacing: "-0.045em",
                   lineHeight: 0.9,
-                  opacity: activeIsVertical ? 0.48 : 0.62,
+                  opacity: 0.52,
                 }}
               >
                 {t.items[active].title}
@@ -242,20 +190,18 @@ export function Hobby({ lang }: HobbyProps) {
 
           <motion.div
             initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 0.45, x: 0 }}
+            animate={{ opacity: 0.38, x: 0 }}
             transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute left-[-150px] top-[154px] z-20 h-[250px] w-[360px] md:left-[-84px] md:h-[320px] md:w-[430px]"
-            style={{ filter: "drop-shadow(0 22px 18px rgba(0,0,0,0.46))" }}
+            className="absolute left-[-130px] top-[160px] z-20 h-[240px] w-[320px] md:left-[-70px] md:h-[310px] md:w-[400px]"
           >
             <PrevVisual small />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 0.45, x: 0 }}
+            animate={{ opacity: 0.38, x: 0 }}
             transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute right-[-160px] top-[154px] z-20 h-[250px] w-[360px] md:right-[-92px] md:h-[320px] md:w-[430px]"
-            style={{ filter: "drop-shadow(0 22px 18px rgba(0,0,0,0.46))" }}
+            className="absolute right-[-140px] top-[160px] z-20 h-[240px] w-[320px] md:right-[-78px] md:h-[310px] md:w-[400px]"
           >
             <NextVisual small />
           </motion.div>
@@ -267,15 +213,9 @@ export function Hobby({ lang }: HobbyProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: -18 }}
               transition={{ duration: 0.42, ease: [0.25, 0.1, 0.25, 1] }}
-              className={
-                activeIsVertical
-                  ? "absolute left-1/2 top-[30px] z-30 h-[500px] w-[360px] max-w-[82vw] -translate-x-1/2 md:h-[535px] md:w-[390px]"
-                  : "absolute left-1/2 top-[118px] z-30 h-[300px] w-[540px] max-w-[92vw] -translate-x-1/2 md:h-[370px] md:w-[720px]"
-              }
+              className="absolute left-1/2 top-[28px] z-30 h-[480px] w-[400px] max-w-[84vw] -translate-x-1/2 md:h-[510px] md:w-[420px]"
               style={{
-                filter: activeIsVertical
-                  ? "drop-shadow(0 44px 32px rgba(0,0,0,0.36))"
-                  : "drop-shadow(0 34px 30px rgba(0,0,0,0.42))",
+                filter: "drop-shadow(0 44px 32px rgba(0,0,0,0.36))",
               }}
             >
               <ActiveVisual />
