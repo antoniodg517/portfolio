@@ -32,39 +32,38 @@ function TimelineItem({
       className="relative pl-8"
     >
       <div
-        className="absolute left-0 top-1 w-2 h-2 rounded-full"
+        className="lambo-hex absolute left-0 top-1 w-3 h-3"
         style={{
-          background: type === "work" ? "#D4AF37" : "#2563EB",
-          boxShadow: type === "work" ? "0 0 12px rgba(212,175,55,0.5)" : "0 0 12px rgba(37,99,235,0.35)",
+          background: type === "work" ? "#FFC000" : "#29ABE2",
         }}
       />
       <div className="pb-12">
         <div className="flex flex-wrap items-start gap-3 mb-2">
-          <h3 className="text-white" style={{ fontSize: "1.0625rem", fontWeight: 600, letterSpacing: "-0.01em" }}>
+          <h3 className="text-white uppercase" style={{ fontSize: "1.0625rem", fontWeight: 400, letterSpacing: "0" }}>
             {item.role}
           </h3>
           <span
-            className="px-2.5 py-0.5 rounded-full text-xs mt-0.5"
+            className="lambo-tag px-2.5 py-0.5 text-xs mt-0.5"
             style={{
-              background: "#18181B",
-              border: "1px solid #27272A",
-              color: "#A1A1AA",
+              background: "#000000",
+              border: "1px solid #494949",
+              color: "#969696",
             }}
           >
             {item.period}
           </span>
         </div>
-        <p className="text-white/40 text-sm mb-3">{item.org}</p>
-        <p className="text-white/40 text-sm leading-relaxed mb-4">{item.description}</p>
+        <p className="text-white/55 text-sm mb-3">{item.org}</p>
+        <p className="text-white/55 text-sm leading-relaxed mb-4">{item.description}</p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-2.5 py-0.5 rounded-full text-xs"
+              className="px-2.5 py-0.5 text-xs uppercase"
               style={{
-                background: type === "work" ? "rgba(212,175,55,0.08)" : "rgba(37,99,235,0.12)",
-                border: type === "work" ? "1px solid rgba(212,175,55,0.18)" : "1px solid rgba(37,99,235,0.28)",
-                color: type === "work" ? "#E6C76A" : "#2563EB",
+                background: "#000000",
+                border: type === "work" ? "1px solid rgba(255,192,0,0.5)" : "1px solid rgba(41,171,226,0.5)",
+                color: type === "work" ? "#FFCE3E" : "#29ABE2",
               }}
             >
               {tag}
@@ -91,12 +90,12 @@ export function Experience({ lang }: ExperienceProps) {
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="mb-16"
         >
-          <p className="text-white/30 uppercase tracking-widest mb-4 text-xs" style={{ letterSpacing: "0.2em" }}>
+          <p className="lambo-label mb-4">
             {t.label}
           </p>
           <h2
-            className="text-white"
-            style={{ fontSize: "clamp(2rem,4vw,3.25rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
+            className="lambo-heading"
+            style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}
           >
             {t.headline}
           </h2>
@@ -106,7 +105,7 @@ export function Experience({ lang }: ExperienceProps) {
           <div className="relative">
             <div
               className="absolute left-[3px] top-2 bottom-0 w-px"
-              style={{ background: "#27272A" }}
+              style={{ background: "#494949" }}
             />
             {t.items.map((item, i) => (
               <TimelineItem key={item.role} item={item} type={itemTypes[i]} tags={itemTags[i]} index={i} />

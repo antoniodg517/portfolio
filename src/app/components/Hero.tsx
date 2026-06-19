@@ -12,24 +12,22 @@ export function Hero({ lang }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
-      {/* Ambient glows */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "#000000",
+        }}
+      />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37,99,235,0.18) 0%, rgba(30,58,138,0.08) 35%, transparent 72%)",
+            "linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 32%, rgba(255,192,0,0.08) 100%)",
         }}
       />
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center bottom, rgba(212,175,55,0.12) 0%, transparent 70%)",
-        }}
-      />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/35" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,68 +35,55 @@ export function Hero({ lang }: HeroProps) {
           className="mb-6"
         >
           <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase"
+            className="lambo-tag inline-flex items-center gap-2 px-4 py-1.5 text-xs"
             style={{
-              background: "rgba(212,175,55,0.08)",
-              border: "1px solid rgba(212,175,55,0.2)",
-              color: "#D4AF37",
               letterSpacing: "0.12em",
             }}
           >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#D4AF37" }} />
+            <span className="w-1.5 h-1.5 lambo-hex animate-pulse" style={{ background: "#FFC000" }} />
             {t.badge}
           </span>
         </motion.div>
 
-        {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-white mb-6 leading-none tracking-tight"
+          className="lambo-heading mb-6"
           style={{
-            fontSize: "clamp(3rem, 8vw, 7rem)",
-            fontWeight: 600,
-            letterSpacing: "-0.04em",
+            fontSize: "clamp(3rem, 10vw, 7.5rem)",
           }}
         >
           {t.title1}
           <br />
           <span
             style={{
-              background: "linear-gradient(135deg, #FAFAFA 0%, #E6C76A 52%, #A1A1AA 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "#FFFFFF",
             }}
           >
             {t.title2}
           </span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-4 text-white/40 tracking-widest uppercase"
-          style={{ fontSize: "0.75rem", letterSpacing: "0.2em" }}
+          className="lambo-label mb-4"
         >
           {t.subtitle}
         </motion.p>
 
-        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-          className="max-w-xl mx-auto text-white/50 leading-relaxed mb-12"
+          className="lambo-copy max-w-xl mx-auto mb-12"
           style={{ fontSize: "1.0625rem" }}
         >
           {t.tagline}
         </motion.p>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,19 +92,16 @@ export function Hero({ lang }: HeroProps) {
         >
           <button
             onClick={scrollToProjects}
-            className="px-7 py-3 rounded-full text-sm font-medium transition-all duration-200"
+            className="lambo-primary px-8 py-4 text-sm font-medium transition-colors duration-200"
             style={{
-              background: "linear-gradient(135deg, #D4AF37 0%, #E6C76A 100%)",
-              color: "#09090B",
-              boxShadow: "0 14px 40px rgba(212,175,55,0.18)",
+              background: "#FFC000",
+              color: "#000000",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "linear-gradient(135deg, #E6C76A 0%, #D4AF37 100%)";
-              (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.02)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#917300";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "linear-gradient(135deg, #D4AF37 0%, #E6C76A 100%)";
-              (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
+              (e.currentTarget as HTMLButtonElement).style.background = "#FFC000";
             }}
           >
             {t.viewProjects}
@@ -127,21 +109,21 @@ export function Hero({ lang }: HeroProps) {
           <a
             href="/Antonio_Del_Giudice_CV.pdf"
             download
-            className="px-7 py-3 rounded-full text-sm font-medium transition-all duration-200"
+            className="lambo-ghost px-8 py-4 text-sm font-medium transition-colors duration-200"
             style={{
-              background: "#18181B",
-              border: "1px solid #27272A",
-              color: "#A1A1AA",
+              background: "transparent",
+              border: "1px solid rgba(255,255,255,0.5)",
+              color: "#FFFFFF",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "rgba(30,58,138,0.22)";
-              (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(37,99,235,0.55)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#29ABE2";
+              (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.7)";
               (e.currentTarget as HTMLAnchorElement).style.color = "#FAFAFA";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#18181B";
-              (e.currentTarget as HTMLAnchorElement).style.border = "1px solid #27272A";
-              (e.currentTarget as HTMLAnchorElement).style.color = "#A1A1AA";
+              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+              (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.5)";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF";
             }}
           >
             {t.downloadCV}
@@ -155,7 +137,7 @@ export function Hero({ lang }: HeroProps) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
         onClick={scrollToProjects}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30 hover:text-white/60 transition-colors duration-200"
+        className="lambo-hex absolute bottom-10 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center border border-white/50 text-white/60 hover:text-white transition-colors duration-200"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}

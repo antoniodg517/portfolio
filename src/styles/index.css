@@ -1,3 +1,116 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+:root {
+  --lambo-black: #000000;
+  --lambo-iron: #181818;
+  --lambo-charcoal: #202020;
+  --lambo-gold: #ffc000;
+  --lambo-gold-dark: #917300;
+  --lambo-gold-text: #ffce3e;
+  --lambo-cyan: #29abe2;
+  --lambo-ash: #7d7d7d;
+  --lambo-steel: #969696;
+}
+
+html,
+body {
+  background: var(--lambo-black);
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--lambo-gold);
+  color: var(--lambo-black);
+}
+
+.lambo-app {
+  background: var(--lambo-black);
+  color: #ffffff;
+  font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.lambo-divider {
+  height: 1px;
+  background: #202020;
+}
+
+.lambo-label {
+  color: var(--lambo-steel);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.lambo-heading {
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.lambo-copy {
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.56;
+}
+
+.lambo-card {
+  background: var(--lambo-charcoal) !important;
+  border: 1px solid var(--lambo-charcoal) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.lambo-tag {
+  background: #000000 !important;
+  border: 1px solid #494949 !important;
+  border-radius: 0 !important;
+  color: var(--lambo-steel) !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lambo-primary,
+.lambo-ghost {
+  border-radius: 0 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lambo-primary {
+  background: var(--lambo-gold) !important;
+  border: 0 !important;
+  color: #000000 !important;
+}
+
+.lambo-primary:hover {
+  background: var(--lambo-gold-dark) !important;
+}
+
+.lambo-ghost {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.lambo-ghost:hover {
+  background: var(--lambo-cyan) !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.lambo-hex {
+  clip-path: polygon(22% 0, 78% 0, 100% 50%, 78% 100%, 22% 100%, 0 50%);
+}
+
+.lambo-media-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 38%, rgba(0, 0, 0, 0.96) 100%) !important;
+}
+
+@media (max-width: 640px) {
+  .lambo-heading {
+    line-height: 1.04;
+  }
+}

@@ -5,9 +5,9 @@ interface FooterProps { lang: Lang }
 export function Footer({ lang }: FooterProps) {
   const t = translations[lang].footer;
   return (
-    <footer className="py-10 px-6 text-center" style={{ borderTop: "1px solid rgba(39,39,42,0.75)" }}>
-      <p className="text-white/20 text-sm">
-        © {new Date().getFullYear()} Antonio Del Giudice — {t}
+    <footer className="py-10 px-6 text-center" style={{ borderTop: "1px solid #202020", background: "#000000" }}>
+      <p className="text-white/35 text-xs uppercase" style={{ letterSpacing: "0.12em" }}>
+        © {new Date().getFullYear()} Antonio Del Giudice - {t}
       </p>
     </footer>
   );

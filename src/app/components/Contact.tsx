@@ -26,23 +26,20 @@ export function Contact({ lang }: ContactProps) {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <p className="text-white/30 uppercase tracking-widest mb-6 text-xs" style={{ letterSpacing: "0.2em" }}>
+          <p className="lambo-label mb-6">
             {t.label}
           </p>
           <h2
-            className="text-white tracking-tight mb-5"
+            className="lambo-heading mb-5"
             style={{
               fontSize: "clamp(2.5rem,6vw,5rem)",
-              fontWeight: 600,
-              letterSpacing: "-0.04em",
-              lineHeight: 1.1,
             }}
           >
             {t.headline1}
             <br />
-            <span style={{ color: "#E6C76A" }}>{t.headline2}</span>
+            <span style={{ color: "#FFCE3E" }}>{t.headline2}</span>
           </h2>
-          <p className="text-white/40 max-w-md mx-auto mb-16 leading-relaxed" style={{ fontSize: "1.0625rem" }}>
+          <p className="lambo-copy max-w-md mx-auto mb-16" style={{ fontSize: "1.0625rem" }}>
             {t.sub}
           </p>
         </motion.div>
@@ -60,31 +57,29 @@ export function Contact({ lang }: ContactProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="group flex-1 flex flex-col items-center gap-3 p-6 rounded-2xl transition-all duration-300"
+                className="lambo-card group flex-1 flex flex-col items-center gap-3 p-6 transition-colors duration-300"
                 style={{
-                  background: "#18181B",
-                  border: "1px solid #27272A",
+                  background: "#202020",
+                  border: "1px solid #202020",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(30,58,138,0.24)";
-                  (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(212,175,55,0.28)";
-                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#000000";
+                  (e.currentTarget as HTMLAnchorElement).style.border = "1px solid #FFC000";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = "#18181B";
-                  (e.currentTarget as HTMLAnchorElement).style.border = "1px solid #27272A";
-                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#202020";
+                  (e.currentTarget as HTMLAnchorElement).style.border = "1px solid #202020";
                 }}
               >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(212,175,55,0.1)" }}>
-                  <Icon size={18} style={{ color: "#D4AF37" }} />
+                <div className="lambo-hex w-11 h-11 flex items-center justify-center" style={{ background: "#FFC000" }}>
+                  <Icon size={18} style={{ color: "#000000" }} />
                 </div>
                 <div>
-                  <div className="flex items-center justify-center gap-1 text-white text-sm font-medium mb-1">
+                  <div className="flex items-center justify-center gap-1 text-white text-sm font-medium uppercase mb-1" style={{ letterSpacing: "0.04em" }}>
                     {link.label}
-                    <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: "#D4AF37" }} />
+                    <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: "#FFC000" }} />
                   </div>
-                  <div className="text-white/30 text-xs">{link.sub}</div>
+                  <div className="text-white/45 text-xs">{link.sub}</div>
                 </div>
               </motion.a>
             );

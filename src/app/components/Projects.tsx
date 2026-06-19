@@ -38,41 +38,40 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
-      className="group relative rounded-3xl overflow-hidden"
+      className="lambo-card group relative overflow-hidden"
       style={{
-        background: "#18181B",
-        border: "1px solid #27272A",
+        background: "#202020",
+        border: "1px solid #202020",
       }}
     >
-      <div className="relative overflow-hidden" style={{ height: "240px", background: "#18181B" }}>
+      <div className="relative overflow-hidden" style={{ height: "240px", background: "#181818" }}>
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          style={{ opacity: 0.7 }}
+          className="w-full h-full object-cover"
+          style={{ opacity: 0.68, filter: "grayscale(0.25) contrast(1.12)" }}
         />
         <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(30,58,138,0.08) 0%, transparent 40%, rgba(9,9,11,0.92) 100%)" }}
+          className="lambo-media-overlay absolute inset-0"
         />
         <div className="absolute top-4 right-4 flex items-center gap-2">
           <span
-            className="px-2.5 py-1 rounded-full text-xs"
+            className="lambo-tag px-2.5 py-1 text-xs"
             style={{
-              background: "rgba(9,9,11,0.76)",
-              border: "1px solid #27272A",
-              color: "#A1A1AA",
+              background: "rgba(0,0,0,0.76)",
+              border: "1px solid #494949",
+              color: "#969696",
               backdropFilter: "blur(8px)",
             }}
           >
             {year}
           </span>
           <span
-            className="px-2.5 py-1 rounded-full text-xs"
+            className="px-2.5 py-1 text-xs uppercase"
             style={{
-              background: "rgba(212,175,55,0.15)",
-              border: "1px solid rgba(212,175,55,0.2)",
-              color: "#E6C76A",
+              background: "#FFC000",
+              border: "1px solid #FFC000",
+              color: "#000000",
               backdropFilter: "blur(8px)",
             }}
           >
@@ -84,8 +83,8 @@ function ProjectCard({
       <div className="p-8">
         <div className="flex items-start justify-between mb-4">
           <h3
-            className="text-white"
-            style={{ fontSize: "1.375rem", fontWeight: 600, letterSpacing: "-0.02em" }}
+            className="text-white uppercase"
+            style={{ fontSize: "1.375rem", fontWeight: 400, letterSpacing: "0" }}
           >
             {title}
           </h3>
@@ -93,23 +92,23 @@ function ProjectCard({
             href={href || undefined}
             target={href ? "_blank" : undefined}
             rel={href ? "noopener noreferrer" : undefined}
-            className="opacity-0 group-hover:opacity-100 transition-all duration-300 p-2 rounded-full"
-            style={{ color: "#E6C76A", background: "rgba(212,175,55,0.08)" }}
+            className="lambo-hex opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2"
+            style={{ color: "#000000", background: "#FFC000" }}
             aria-label={href ? `Open ${title}` : title}
           >
             <ArrowUpRight size={18} />
           </a>
         </div>
-        <p className="text-white/40 leading-relaxed mb-6 text-sm">{description}</p>
+        <p className="text-white/55 leading-relaxed mb-6 text-sm">{description}</p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 rounded-full text-xs"
+              className="lambo-tag px-3 py-1 text-xs"
               style={{
-                background: "#09090B",
-                border: "1px solid #27272A",
-                color: "#A1A1AA",
+                background: "#000000",
+                border: "1px solid #494949",
+                color: "#969696",
               }}
             >
               {tag}
@@ -136,12 +135,12 @@ export function Projects({ lang }: ProjectsProps) {
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="mb-16"
         >
-          <p className="text-white/30 uppercase tracking-widest mb-4 text-xs" style={{ letterSpacing: "0.2em" }}>
+          <p className="lambo-label mb-4">
             {t.label}
           </p>
           <h2
-            className="text-white"
-            style={{ fontSize: "clamp(2rem,4vw,3.25rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
+            className="lambo-heading"
+            style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}
           >
             {t.headline}
           </h2>

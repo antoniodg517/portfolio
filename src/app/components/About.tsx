@@ -19,18 +19,18 @@ export function About({ lang }: AboutProps) {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <p className="text-white/30 uppercase tracking-widest mb-6 text-xs" style={{ letterSpacing: "0.2em" }}>
+            <p className="lambo-label mb-6">
               {t.label}
             </p>
             <h2
-              className="text-white leading-tight mb-8 tracking-tight"
-              style={{ fontSize: "clamp(2rem,4vw,3.25rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
+              className="lambo-heading mb-8"
+              style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}
             >
               {t.headline1}
               <br />
               {t.headline2}
             </h2>
-            <div className="space-y-4 text-white/50 leading-relaxed" style={{ fontSize: "1.0625rem" }}>
+            <div className="lambo-copy space-y-4" style={{ fontSize: "1.0625rem" }}>
               <p>{t.p1}</p>
               <p>{t.p2}</p>
               <p>{t.p3}</p>
@@ -49,19 +49,19 @@ export function About({ lang }: AboutProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.25 + i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-                className="p-6 rounded-2xl"
+                className="lambo-card p-6"
                 style={{
-                  background: "#18181B",
-                  border: "1px solid #27272A",
+                  background: "#202020",
+                  border: "1px solid #202020",
                 }}
               >
                 <div
-                  className="text-white mb-1"
-                  style={{ fontSize: "2.5rem", fontWeight: 600, letterSpacing: "-0.04em", color: "#E6C76A" }}
+                  className="mb-1"
+                  style={{ fontSize: "2.5rem", fontWeight: 400, letterSpacing: "0", color: "#FFCE3E" }}
                 >
                   {stat.value}
                 </div>
-                <div className="text-white/40 text-sm">{stat.label}</div>
+                <div className="text-white/55 text-sm uppercase" style={{ letterSpacing: "0.04em" }}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

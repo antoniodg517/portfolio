@@ -4,24 +4,9 @@ import { type Lang, translations } from "../i18n";
 
 interface HobbyProps { lang: Lang }
 
-const itemStyles = [
-  {
-    glow: "rgba(212,175,55,0.24)",
-    ring: "rgba(212,175,55,0.42)",
-  },
-  {
-    glow: "rgba(212,175,55,0.2)",
-    ring: "rgba(212,175,55,0.36)",
-  },
-  {
-    glow: "rgba(37,99,235,0.22)",
-    ring: "rgba(37,99,235,0.42)",
-  },
-  {
-    glow: "rgba(30,58,138,0.25)",
-    ring: "rgba(37,99,235,0.36)",
-  },
-];
+const CARD_INDEX = 1;
+const RONALDO_CARD_SRC = "/hobby-assets/psa-ronaldo-front.jpg";
+const BACKPACK_SRC = "/hobby-assets/backpack.webp";
 
 function BarbellVisual({ small = false }: { small?: boolean }) {
   return (
@@ -60,48 +45,51 @@ function BarbellVisual({ small = false }: { small?: boolean }) {
 
 function CardVisual({ small = false }: { small?: boolean }) {
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="relative flex h-full w-full items-center justify-center">
       <div
-        className="relative rounded-[18px]"
+        className="absolute rounded-full"
         style={{
-          width: small ? "72%" : "46%",
-          minWidth: small ? 88 : 190,
-          aspectRatio: "0.64",
-          background: "linear-gradient(135deg, rgba(250,250,250,0.12), rgba(161,161,170,0.05))",
-          border: "1px solid rgba(250,250,250,0.18)",
-          boxShadow: "inset 0 0 0 3px rgba(255,255,255,0.05), 0 24px 60px rgba(0,0,0,0.38)",
-          padding: small ? 6 : 12,
+          bottom: small ? "4%" : "-5%",
+          width: small ? "70%" : "92%",
+          height: small ? "14%" : "18%",
+          background: "rgba(0,0,0,0.24)",
+          filter: "blur(18px)",
+        }}
+      />
+      <div
+        className="relative"
+        style={{
+          height: small ? "92%" : "100%",
+          width: "auto",
+          transform: small ? "rotate(-6deg)" : "rotate(-2deg)",
+          transformOrigin: "50% 75%",
+          filter: small
+            ? "drop-shadow(0 18px 18px rgba(0,0,0,0.22))"
+            : "drop-shadow(0 34px 24px rgba(0,0,0,0.32))",
         }}
       >
-        <div className="h-[18%] rounded-t-[10px] bg-[#FAFAFA] border-b-4 border-[#D4AF37] px-3 py-2">
-          <div className="flex items-start justify-between gap-2">
-            <div className="space-y-1">
-              <div className="h-1.5 w-20 bg-[#18181B] rounded" />
-              <div className="h-1.5 w-14 bg-[#18181B] rounded" />
-              <div className="h-1.5 w-10 bg-[#18181B] rounded" />
-            </div>
-            <div className="text-right leading-none">
-              <div className="text-[9px] font-semibold text-[#18181B]">MINT</div>
-              <div className="text-lg font-semibold text-[#18181B]">9</div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="relative h-[82%] overflow-hidden rounded-b-[12px]"
+        <img
+          src={RONALDO_CARD_SRC}
+          alt="PSA graded Cristiano Ronaldo trading card"
+          className="block h-full w-auto select-none"
+          draggable={false}
           style={{
-            background:
-              "linear-gradient(135deg, #E6C76A 0%, #D4AF37 35%, #7C5E0A 100%)",
+            borderRadius: small ? 8 : 14,
+            boxShadow: small
+              ? "inset 0 0 0 1px rgba(255,255,255,0.5)"
+              : "inset 0 0 0 1px rgba(255,255,255,0.45), 0 0 0 1px rgba(0,0,0,0.1)",
           }}
-        >
-          <div className="absolute inset-0 opacity-35" style={{ backgroundImage: "radial-gradient(circle at 25% 20%, #FAFAFA 0 4px, transparent 5px), radial-gradient(circle at 70% 35%, #FAFAFA 0 5px, transparent 6px)" }} />
-          <div className="absolute left-[18%] top-[18%] w-[42%] h-[47%] rounded-full bg-[#FAFAFA]/85 blur-[1px]" />
-          <div className="absolute left-[30%] top-[12%] w-[18%] h-[18%] rounded-full bg-[#18181B]" />
-          <div className="absolute left-[16%] bottom-[18%] right-[12%] h-[18%] skew-x-[-18deg] bg-[#09090B]" />
-          <div className="absolute bottom-4 left-5 right-5 h-5 rounded bg-[#18181B] flex items-center justify-center">
-            <span className="text-[10px] tracking-widest text-[#FAFAFA]">FOOTBALL CARD</span>
-          </div>
-          {!small && <div className="absolute top-4 right-4 text-[10px] font-semibold text-[#18181B]/80">PSA STYLE</div>}
-        </div>
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            borderRadius: small ? 8 : 14,
+            background:
+              "linear-gradient(115deg, rgba(255,255,255,0.32) 0%, transparent 18%, transparent 58%, rgba(255,255,255,0.18) 66%, transparent 74%)",
+            mixBlendMode: "screen",
+            opacity: small ? 0.42 : 0.72,
+          }}
+        />
       </div>
     </div>
   );
@@ -136,25 +124,30 @@ function JerseyVisual({ small = false }: { small?: boolean }) {
 
 function BackpackVisual({ small = false }: { small?: boolean }) {
   return (
-    <svg viewBox="0 0 360 260" className="w-full h-full" role="img" aria-label="Black backpack">
-      <defs>
-        <linearGradient id="pack" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#27272A" />
-          <stop offset="55%" stopColor="#09090B" />
-          <stop offset="100%" stopColor="#18181B" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="180" cy="228" rx={small ? "80" : "122"} ry="14" fill="rgba(0,0,0,0.42)" />
-      <path d="M128 55c12-24 92-24 104 0" fill="none" stroke="#27272A" strokeWidth="9" strokeLinecap="round" />
-      <path d="M106 82c10-34 138-34 148 0l15 116c3 23-16 36-38 36H129c-22 0-41-13-38-36l15-116z" fill="url(#pack)" stroke="#27272A" strokeWidth="4" />
-      <path d="M124 104h112l-8 104H132l-8-104z" fill="#18181B" stroke="#27272A" strokeWidth="3" />
-      <path d="M135 132c28 26 62 26 90 0M135 164c28 26 62 26 90 0" fill="none" stroke="#A1A1AA" strokeWidth="4" opacity="0.75" />
-      <path d="M180 120v78" stroke="#27272A" strokeWidth="4" />
-      <rect x="151" y="74" width="58" height="18" rx="6" fill="#FAFAFA" opacity="0.95" />
-      {!small && <text x="180" y="87" textAnchor="middle" fontSize="10" fontWeight="800" fill="#18181B">BOREALIS</text>}
-      <rect x="94" y="122" width="18" height="62" rx="8" fill="#18181B" stroke="#27272A" />
-      <rect x="248" y="122" width="18" height="62" rx="8" fill="#18181B" stroke="#27272A" />
-    </svg>
+    <div className="relative flex h-full w-full items-center justify-center" role="img" aria-label="Black North Face backpack">
+      <div
+        className="absolute rounded-full"
+        style={{
+          bottom: small ? "3%" : "-2%",
+          width: small ? "62%" : "72%",
+          height: small ? "12%" : "15%",
+          background: "rgba(0,0,0,0.56)",
+          filter: "blur(20px)",
+        }}
+      />
+      <img
+        src={BACKPACK_SRC}
+        alt="Black North Face backpack"
+        className="relative block h-full w-auto select-none"
+        draggable={false}
+        style={{
+          mixBlendMode: "multiply",
+          filter: small
+            ? "contrast(1.18) brightness(1.02) drop-shadow(0 22px 18px rgba(0,0,0,0.38))"
+            : "contrast(1.2) brightness(1.04) drop-shadow(0 42px 30px rgba(0,0,0,0.48))",
+        }}
+      />
+    </div>
   );
 }
 
@@ -166,6 +159,11 @@ export function Hobby({ lang }: HobbyProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const ActiveVisual = visuals[active];
+  const PrevVisual = visuals[(active + visuals.length - 1) % visuals.length];
+  const NextVisual = visuals[(active + 1) % visuals.length];
+  const activeIsCard = active === CARD_INDEX;
+  const activeIsBackpack = active === 3;
+  const activeIsVertical = activeIsCard || activeIsBackpack;
 
   return (
     <section id="hobby" className="py-32 px-6">
@@ -175,105 +173,158 @@ export function Hobby({ lang }: HobbyProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mb-14"
+          className="mb-8"
         >
-          <p className="text-white/30 uppercase tracking-widest mb-4 text-xs" style={{ letterSpacing: "0.2em" }}>
+          <p className="lambo-label mb-4">
             {t.label}
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2
-              className="text-white"
-              style={{ fontSize: "clamp(2rem,4vw,3.25rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
-            >
-              {t.headline}
-            </h2>
-            <p className="max-w-sm text-white/40 leading-relaxed text-sm">{t.intro}</p>
-          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 items-stretch">
+        <div
+          className="relative min-h-[760px] overflow-hidden"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 32%, #202020 0%, #101010 44%, #000000 100%)",
+            color: "#FFFFFF",
+            boxShadow: "inset 0 0 0 1px #202020",
+          }}
+        >
           <div
-            className="relative min-h-[360px] rounded-3xl overflow-hidden"
+            className="absolute inset-0 opacity-28"
             style={{
-              background: "linear-gradient(135deg, #18181B 0%, rgba(30,58,138,0.16) 100%)",
-              border: "1px solid #27272A",
+              backgroundImage:
+                "radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1.8px)",
+              backgroundSize: "17px 17px",
+              maskImage:
+                "linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.7))",
             }}
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 z-30 h-56"
+            style={{
+              background: "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0) 100%)",
+            }}
+          />
+          <div
+            className="absolute left-1/2 top-[420px] z-10 h-24 w-[620px] -translate-x-1/2 rounded-full"
+            style={{
+              background: activeIsVertical ? "rgba(0,0,0,0.58)" : "rgba(0,0,0,0.42)",
+              filter: "blur(34px)",
+            }}
+          />
+
+          <div
+            className="pointer-events-none absolute left-1/2 top-[210px] z-10 w-[1280px] -translate-x-1/2 text-center"
+            aria-hidden="true"
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `radial-gradient(circle at 50% 35%, ${itemStyles[active].glow} 0%, transparent 48%)`,
-              }}
-            />
             <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, scale: 0.94, y: 18 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96, y: -12 }}
+              <motion.h2
+                key={t.items[active].title}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -18 }}
                 transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                className="absolute inset-0 p-8"
+                className="font-light"
+                style={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: activeIsVertical
+                    ? "clamp(4rem, 9vw, 7rem)"
+                    : "clamp(4rem, 10vw, 7.5rem)",
+                  letterSpacing: "-0.045em",
+                  lineHeight: 0.9,
+                  opacity: activeIsVertical ? 0.48 : 0.62,
+                }}
               >
-                <ActiveVisual />
-              </motion.div>
+                {t.items[active].title}
+              </motion.h2>
             </AnimatePresence>
           </div>
 
-          <div
-            className="rounded-3xl p-7 md:p-8 flex flex-col justify-between"
-            style={{
-              background: "#18181B",
-              border: "1px solid #27272A",
-            }}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 0.45, x: 0 }}
+            transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute left-[-150px] top-[154px] z-20 h-[250px] w-[360px] md:left-[-84px] md:h-[320px] md:w-[430px]"
+            style={{ filter: "drop-shadow(0 22px 18px rgba(0,0,0,0.46))" }}
           >
+            <PrevVisual small />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 0.45, x: 0 }}
+            transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute right-[-160px] top-[154px] z-20 h-[250px] w-[360px] md:right-[-92px] md:h-[320px] md:w-[430px]"
+            style={{ filter: "drop-shadow(0 22px 18px rgba(0,0,0,0.46))" }}
+          >
+            <NextVisual small />
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, scale: 0.88, y: 26 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: -18 }}
+              transition={{ duration: 0.42, ease: [0.25, 0.1, 0.25, 1] }}
+              className={
+                activeIsVertical
+                  ? "absolute left-1/2 top-[30px] z-30 h-[500px] w-[360px] max-w-[82vw] -translate-x-1/2 md:h-[535px] md:w-[390px]"
+                  : "absolute left-1/2 top-[118px] z-30 h-[300px] w-[540px] max-w-[92vw] -translate-x-1/2 md:h-[370px] md:w-[720px]"
+              }
+              style={{
+                filter: activeIsVertical
+                  ? "drop-shadow(0 44px 32px rgba(0,0,0,0.36))"
+                  : "drop-shadow(0 34px 30px rgba(0,0,0,0.42))",
+              }}
+            >
+              <ActiveVisual />
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="absolute inset-x-6 bottom-9 z-40 flex flex-col items-center">
             <AnimatePresence mode="wait">
               <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 12 }}
+                key={`${active}-copy`}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25 }}
+                className="mb-6 max-w-2xl text-center"
               >
-                <p className="text-xs uppercase tracking-widest mb-4" style={{ color: "#D4AF37", letterSpacing: "0.16em" }}>
+                <p className="mb-2 text-[11px] uppercase" style={{ color: "#FFCE3E", letterSpacing: "0.16em" }}>
                   {t.items[active].kicker}
                 </p>
-                <h3 className="text-white mb-5" style={{ fontSize: "clamp(1.75rem,3vw,2.65rem)", fontWeight: 600, letterSpacing: "-0.03em" }}>
-                  {t.items[active].title}
-                </h3>
-                <p className="text-white/50 leading-relaxed" style={{ fontSize: "1rem" }}>
+                <p className="line-clamp-2 text-sm leading-relaxed text-white/70">
                   {t.items[active].description}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            <div className="grid grid-cols-4 gap-3 mt-10">
+            <div
+              className="flex max-w-full flex-wrap justify-center gap-2 rounded-full p-1"
+              style={{
+                background: "rgba(32,32,32,0.92)",
+                border: "1px solid #494949",
+                boxShadow: "0 18px 40px rgba(0,0,0,0.34)",
+              }}
+            >
               {t.items.map((item, index) => {
-                const Thumb = visuals[index];
                 const selected = active === index;
                 return (
                   <button
                     key={item.title}
                     onClick={() => setActive(index)}
-                    className="group relative aspect-square rounded-2xl overflow-hidden transition-all duration-300"
+                    className="px-5 py-3 text-xs transition-colors duration-200"
                     style={{
-                      background: selected ? "rgba(212,175,55,0.08)" : "#09090B",
-                      border: selected ? `1px solid ${itemStyles[index].ring}` : "1px solid #27272A",
-                      boxShadow: selected ? `0 0 0 1px ${itemStyles[index].ring}, 0 16px 36px rgba(0,0,0,0.24)` : "none",
+                      background: selected ? "#FFC000" : "transparent",
+                      borderRadius: "999px",
+                      color: selected ? "#000000" : "#969696",
+                      letterSpacing: "0",
                     }}
                     aria-label={item.title}
                   >
-                    <div className="absolute inset-2">
-                      <Thumb small />
-                    </div>
-                    <div
-                      className="absolute inset-x-0 bottom-0 px-2 py-2 text-[10px] font-medium text-center"
-                      style={{
-                        background: "linear-gradient(to top, rgba(9,9,11,0.96), transparent)",
-                        color: selected ? "#E6C76A" : "#A1A1AA",
-                      }}
-                    >
-                      {item.title}
-                    </div>
+                    {item.title}
                   </button>
                 );
               })}

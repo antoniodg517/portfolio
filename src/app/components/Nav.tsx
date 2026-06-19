@@ -42,52 +42,49 @@ export function Nav({ lang, onLangChange }: NavProps) {
       <div
         className="transition-all duration-500"
         style={{
-          background: scrolled ? "rgba(9,9,11,0.88)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid #27272A" : "1px solid transparent",
+          background: scrolled ? "rgba(0,0,0,0.88)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px) saturate(140%)" : "none",
+          borderBottom: scrolled ? "1px solid #202020" : "1px solid transparent",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
+        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-sm tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200"
-            style={{ letterSpacing: "0.15em" }}
+            className="text-sm uppercase text-white hover:text-[#FFC000] transition-colors duration-200"
+            style={{ letterSpacing: "0.16em" }}
           >
             ADG
           </button>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-sm text-white/50 hover:text-white transition-colors duration-200"
+                className="text-xs uppercase text-white/55 hover:text-white transition-colors duration-200"
+                style={{ letterSpacing: "0.1em" }}
               >
                 {link.label}
               </button>
             ))}
           </nav>
 
-          {/* Right controls */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Language toggle */}
             <div
-              className="flex items-center rounded-full p-0.5 text-xs"
+              className="flex items-center p-0.5 text-xs"
               style={{
-                background: "#18181B",
-                border: "1px solid #27272A",
+                background: "#000000",
+                border: "1px solid #494949",
               }}
             >
               {(["it", "en"] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => onLangChange(l)}
-                  className="px-3 py-1 rounded-full uppercase transition-all duration-200"
+                  className="px-3 py-1 uppercase transition-colors duration-200"
                   style={{
-                    background: lang === l ? "rgba(212,175,55,0.16)" : "transparent",
-                    color: lang === l ? "#E6C76A" : "#A1A1AA",
+                    background: lang === l ? "#FFC000" : "transparent",
+                    color: lang === l ? "#000000" : "#969696",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -98,24 +95,22 @@ export function Nav({ lang, onLangChange }: NavProps) {
 
             <button
               onClick={() => handleNav("#contact")}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm transition-all duration-200"
+              className="lambo-primary inline-flex items-center gap-2 px-5 py-2 text-sm transition-colors duration-200"
               style={{
-                background: "rgba(212,175,55,0.12)",
-                border: "1px solid rgba(212,175,55,0.3)",
-                color: "#D4AF37",
+                background: "#FFC000",
+                color: "#000000",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.2)";
+                (e.currentTarget as HTMLButtonElement).style.background = "#917300";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.12)";
+                (e.currentTarget as HTMLButtonElement).style.background = "#FFC000";
               }}
             >
               {t.cta}
             </button>
           </div>
 
-          {/* Mobile burger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden flex flex-col gap-1.5 p-2"
@@ -137,31 +132,31 @@ export function Nav({ lang, onLangChange }: NavProps) {
             transition={{ duration: 0.2 }}
             className="md:hidden px-6 py-6 flex flex-col gap-4"
             style={{
-              background: "rgba(9,9,11,0.97)",
-              backdropFilter: "blur(20px)",
-              borderBottom: "1px solid #27272A",
+              background: "rgba(0,0,0,0.98)",
+              backdropFilter: "blur(12px)",
+              borderBottom: "1px solid #202020",
             }}
           >
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-left text-base text-white/70 hover:text-white transition-colors duration-200 py-1"
+                className="text-left text-base uppercase text-white/70 hover:text-white transition-colors duration-200 py-1"
+                style={{ letterSpacing: "0.08em" }}
               >
                 {link.label}
               </button>
             ))}
-            {/* Mobile lang toggle */}
             <div className="flex gap-2 pt-2">
               {(["it", "en"] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => onLangChange(l)}
-                  className="px-4 py-1.5 rounded-full text-xs uppercase transition-all duration-200"
+                  className="px-4 py-1.5 text-xs uppercase transition-colors duration-200"
                   style={{
-                    background: lang === l ? "rgba(212,175,55,0.16)" : "#18181B",
-                    border: "1px solid #27272A",
-                    color: lang === l ? "#E6C76A" : "#A1A1AA",
+                    background: lang === l ? "#FFC000" : "#202020",
+                    border: "1px solid #494949",
+                    color: lang === l ? "#000000" : "#969696",
                     letterSpacing: "0.08em",
                   }}
                 >

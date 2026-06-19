@@ -15,7 +15,7 @@ import { Footer } from "./components/Footer";
 
 const Divider = () => (
   <div className="max-w-6xl mx-auto px-6">
-    <div style={{ height: "1px", background: "rgba(39,39,42,0.75)" }} />
+    <div className="lambo-divider" />
   </div>
 );
 
@@ -24,11 +24,10 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen"
+      className="lambo-app min-h-screen"
       style={{
-        background: "#09090B",
-        color: "#FAFAFA",
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        background: "#000000",
+        color: "#FFFFFF",
       }}
     >
       <Nav lang={lang} onLangChange={setLang} />
