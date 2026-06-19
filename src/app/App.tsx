@@ -6,7 +6,6 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
-import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
 import { Hobby } from "./components/Hobby";
 import { Certifications } from "./components/Certifications";
@@ -40,8 +39,6 @@ export default function App() {
         <Projects lang={lang} />
         <Divider />
         <Experience lang={lang} />
-        <Divider />
-        <Skills lang={lang} />
         <Divider />
         <Certifications lang={lang} />
         <Divider />
