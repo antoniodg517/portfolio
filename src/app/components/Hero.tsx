@@ -37,10 +37,10 @@ export function Hero({ lang }: HeroProps) {
           <span
             className="lambo-tag inline-flex items-center gap-2 px-4 py-1.5 text-xs"
             style={{
-              letterSpacing: "0.12em",
+              letterSpacing: "0.08em",
             }}
           >
-            <span className="w-1.5 h-1.5 lambo-hex animate-pulse" style={{ background: "#FFC000" }} />
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#FFC000" }} />
             {t.badge}
           </span>
         </motion.div>
@@ -137,7 +137,7 @@ export function Hero({ lang }: HeroProps) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
         onClick={scrollToProjects}
-        className="lambo-hex absolute bottom-10 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center border border-white/50 text-white/60 hover:text-white transition-colors duration-200"
+        className="rounded-full absolute bottom-10 left-1/2 -translate-x-1/2 flex h-12 w-12 items-center justify-center border border-white/20 text-white/50 hover:text-white hover:border-white/50 transition-colors duration-200"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}

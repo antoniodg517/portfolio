@@ -9,6 +9,7 @@ export const translations = {
       skills: "Skills",
       contact: "Contact",
       hobby: "Hobby",
+      certifications: "Certifications",
       cta: "Get in touch",
     },
     hero: {
@@ -141,6 +142,13 @@ export const translations = {
         },
       ],
     },
+    certifications: {
+      label: "Certifications",
+      headline: "15 verified courses.",
+      provider: "Learnn — 2025",
+      verified: "Verified",
+      lessons: "lessons",
+    },
     footer: "Crafted with precision.",
   },
   it: {
@@ -151,6 +159,7 @@ export const translations = {
       skills: "Competenze",
       contact: "Contatti",
       hobby: "Hobby",
+      certifications: "Certificazioni",
       cta: "Scrivimi",
     },
     hero: {
@@ -282,6 +291,13 @@ export const translations = {
             "Backpacking & Travel. Esplorare nuovi Paesi e culture sviluppa curiosità, adattabilità e apertura mentale — qualità che considero fondamentali sia nella vita che nel lavoro.",
         },
       ],
+    },
+    certifications: {
+      label: "Certificazioni",
+      headline: "15 corsi certificati.",
+      provider: "Learnn — 2025",
+      verified: "Verificato",
+      lessons: "lezioni",
     },
     footer: "Realizzato con precisione.",
   },

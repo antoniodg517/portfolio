@@ -56,10 +56,11 @@ function ProjectCard({
         />
         <div className="absolute top-4 right-4 flex items-center gap-2">
           <span
-            className="lambo-tag px-2.5 py-1 text-xs"
+            className="px-2.5 py-1 text-xs"
             style={{
-              background: "rgba(0,0,0,0.76)",
-              border: "1px solid #494949",
+              background: "rgba(0,0,0,0.72)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: "999px",
               color: "#969696",
               backdropFilter: "blur(8px)",
             }}
@@ -67,10 +68,10 @@ function ProjectCard({
             {year}
           </span>
           <span
-            className="px-2.5 py-1 text-xs uppercase"
+            className="px-2.5 py-1 text-xs"
             style={{
               background: "#FFC000",
-              border: "1px solid #FFC000",
+              borderRadius: "999px",
               color: "#000000",
               backdropFilter: "blur(8px)",
             }}
@@ -92,7 +93,7 @@ function ProjectCard({
             href={href || undefined}
             target={href ? "_blank" : undefined}
             rel={href ? "noopener noreferrer" : undefined}
-            className="lambo-hex opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2"
+            className="rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2"
             style={{ color: "#000000", background: "#FFC000" }}
             aria-label={href ? `Open ${title}` : title}
           >

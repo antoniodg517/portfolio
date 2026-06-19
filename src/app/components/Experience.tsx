@@ -32,7 +32,7 @@ function TimelineItem({
       className="relative pl-8"
     >
       <div
-        className="lambo-hex absolute left-0 top-1 w-3 h-3"
+        className="rounded-full absolute left-0 top-1.5 w-3 h-3"
         style={{
           background: type === "work" ? "#FFC000" : "#29ABE2",
         }}
@@ -45,9 +45,10 @@ function TimelineItem({
           <span
             className="lambo-tag px-2.5 py-0.5 text-xs mt-0.5"
             style={{
-              background: "#000000",
+              background: "transparent",
               border: "1px solid #494949",
               color: "#969696",
+              borderRadius: "999px",
             }}
           >
             {item.period}

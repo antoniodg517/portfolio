@@ -71,7 +71,7 @@ export function Contact({ lang }: ContactProps) {
                   (e.currentTarget as HTMLAnchorElement).style.border = "1px solid #202020";
                 }}
               >
-                <div className="lambo-hex w-11 h-11 flex items-center justify-center" style={{ background: "#FFC000" }}>
+                <div className="rounded-2xl w-11 h-11 flex items-center justify-center" style={{ background: "#FFC000" }}>
                   <Icon size={18} style={{ color: "#000000" }} />
                 </div>
                 <div>

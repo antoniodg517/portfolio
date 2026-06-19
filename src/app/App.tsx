@@ -9,6 +9,7 @@ import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
 import { Hobby } from "./components/Hobby";
+import { Certifications } from "./components/Certifications";
 import { Footer } from "./components/Footer";
 
 {/* MARKER-MAKE-KIT-INVOKED */}
@@ -41,6 +42,8 @@ export default function App() {
         <Experience lang={lang} />
         <Divider />
         <Skills lang={lang} />
+        <Divider />
+        <Certifications lang={lang} />
         <Divider />
         <Contact lang={lang} />
         <Divider />

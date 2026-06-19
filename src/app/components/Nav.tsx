@@ -17,6 +17,7 @@ export function Nav({ lang, onLangChange }: NavProps) {
     { label: t.projects, href: "#projects" },
     { label: t.experience, href: "#experience" },
     { label: t.skills, href: "#skills" },
+    { label: t.certifications, href: "#certifications" },
     { label: t.contact, href: "#contact" },
     { label: t.hobby, href: "#hobby" },
   ];
