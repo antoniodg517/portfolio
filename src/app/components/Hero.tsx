@@ -238,7 +238,7 @@ export function Hero({ lang }: HeroProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center min-h-[88vh] py-28 md:py-0">
 
           {/* LEFT — text */}
-          <div className="flex flex-col items-start order-2 md:order-1">
+          <div className="flex flex-col items-start order-1">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -334,7 +334,7 @@ export function Hero({ lang }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="relative flex items-center justify-center order-1 md:order-2"
+            className="relative hidden md:flex items-center justify-center order-2"
             style={{ minHeight: "420px" }}
           >
             {/* Ambient glow */}

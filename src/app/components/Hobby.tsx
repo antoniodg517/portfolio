@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { type Lang, translations } from "../i18n";
 
@@ -139,6 +139,24 @@ export function Hobby({ lang }: HobbyProps) {
   const t = translations[lang].hobby;
   const [active, setActive] = useState(0);
   const ref = useRef(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActive((i) => (i + 1) % visuals.length);
+    }, 12000);
+  }, []);
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [startTimer]);
+
+  const handleSelect = (index: number) => {
+    setActive(index);
+    startTimer();
+  };
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const ActiveVisual = visuals[active];
   const PrevVisual = visuals[(active + visuals.length - 1) % visuals.length];
@@ -285,7 +303,7 @@ export function Hobby({ lang }: HobbyProps) {
                 return (
                   <button
                     key={item.title}
-                    onClick={() => setActive(index)}
+                    onClick={() => handleSelect(index)}
                     className="px-5 py-3 text-xs transition-colors duration-200"
                     style={{
                       background: selected ? "#FFC000" : "transparent",
