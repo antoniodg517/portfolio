@@ -145,7 +145,7 @@ export function Hobby({ lang }: HobbyProps) {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setActive((i) => (i + 1) % visuals.length);
-    }, 12000);
+    }, 7000);
   }, []);
 
   useEffect(() => {
