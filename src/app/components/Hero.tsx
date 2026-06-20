@@ -254,23 +254,42 @@ export function Hero({ lang }: HeroProps) {
               </span>
             </motion.div>
 
-            <motion.h1
+            <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.75, delay: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mb-3"
-              style={{
-                fontSize: "clamp(2.6rem, 6vw, 5.5rem)",
-                fontWeight: 300,
-                letterSpacing: "-0.04em",
-                lineHeight: 0.96,
-                color: "#FFFFFF",
-              }}
+              className="flex items-center gap-4 mb-3"
             >
-              {t.title1}
-              <br />
-              {t.title2}
-            </motion.h1>
+              {/* Avatar — mobile only */}
+              <div
+                className="shrink-0 md:hidden rounded-full overflow-hidden"
+                style={{
+                  width: 56, height: 56,
+                  border: "2px solid rgba(255,192,0,0.35)",
+                }}
+              >
+                <img
+                  src={PROFILE_SRC}
+                  alt="Antonio Del Giudice"
+                  className="w-full h-full object-cover object-top"
+                  draggable={false}
+                />
+              </div>
+
+              <h1
+                style={{
+                  fontSize: "clamp(2.6rem, 6vw, 5.5rem)",
+                  fontWeight: 300,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 0.96,
+                  color: "#FFFFFF",
+                }}
+              >
+                {t.title1}
+                <br />
+                {t.title2}
+              </h1>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
