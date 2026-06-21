@@ -1,13 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { Download, Github, FolderGit2, Linkedin, ArrowUpRight } from "lucide-react";
+import { Download, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { type Lang, translations } from "../i18n";
 
-const linkIcons = [Linkedin, Github, FolderGit2, Download];
+const linkIcons = [Linkedin, Github, Download];
 const linkHrefs = [
   "https://www.linkedin.com/in/antonio-del-giudice-1a7069387/",
   "https://github.com/antoniodg517",
-  "https://github.com/antoniodg517/the-postural-interview",
   "/Antonio_Del_Giudice_CV.pdf",
 ];
 
@@ -58,7 +57,7 @@ export function Contact({ lang }: ContactProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="lambo-card group flex-1 flex flex-col items-center gap-3 p-6 transition-colors duration-300"
+                className="lambo-card group flex-1 flex flex-col items-center gap-2 p-6 transition-colors duration-300"
                 style={{
                   background: "#202020",
                   border: "1px solid #202020",

@@ -108,7 +108,6 @@ export const translations = {
       links: [
         { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
-        { label: "Project", sub: "The Postural Interview" },
         { label: "CV", sub: "Download PDF" },
       ],
     },
@@ -259,7 +258,6 @@ export const translations = {
       links: [
         { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
-        { label: "Progetto", sub: "The Postural Interview" },
         { label: "CV", sub: "Scarica PDF" },
       ],
     },
