@@ -15,9 +15,9 @@ const projectMeta = [
     href: "https://ilmeridianosport.it",
   },
   {
-    tags: ["IT support", "Maintenance", "Operations", "Website"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format",
-    href: "",
+    tags: ["Next.js", "Supabase", "TypeScript", "Admin Panel", "Vercel"],
+    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=500&fit=crop&auto=format",
+    href: "https://adg-merengue-vault.vercel.app/",
   },
 ];
 

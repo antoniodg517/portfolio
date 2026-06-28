@@ -54,11 +54,11 @@ export const translations = {
           status: "Web development",
         },
         {
-          title: "Pro Loco Poggiomarino",
+          title: "ADG — Merengue Vault",
           description:
-            "IT support and operational work for the association, including computer maintenance, support for the 31st National Poetry Award 'Citta di Poggiomarino', administrative operations, and website management.",
-          year: "2021-2022",
-          status: "IT support",
+            "Full-stack collector's vault for Real Madrid trading cards. Features a public storefront for browsing and filtering the collection, and a private admin panel for complete inventory management, card uploads, and data control.",
+          year: "2025-2026",
+          status: "Full-stack app",
         },
       ],
     },
@@ -204,11 +204,11 @@ export const translations = {
           status: "Web development",
         },
         {
-          title: "Pro Loco Poggiomarino",
+          title: "ADG — Merengue Vault",
           description:
-            "Supporto IT e operativo per l'associazione: manutenzione computer, supporto al 31º Premio Nazionale di Poesia 'Citta di Poggiomarino', gestione amministrativa e gestione del sito web.",
-          year: "2021-2022",
-          status: "Supporto IT",
+            "Vault full-stack per il collezionismo di trading card del Real Madrid. Include uno storefront pubblico per navigare e filtrare la collezione, e un pannello admin privato per la gestione completa dell'inventario, upload delle card e controllo dei dati.",
+          year: "2025-2026",
+          status: "Full-stack app",
         },
       ],
     },
