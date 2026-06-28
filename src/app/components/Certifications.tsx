@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { type Lang, translations } from "../i18n";
 
-const certifications = [
+const learnnCerts = [
   { name: "AI e ChatGPT", date: "30/09/2025", hours: 13, lessons: 109 },
   { name: "Email Marketing", date: "15/11/2025", hours: 9, lessons: 65 },
   { name: "Python", date: "22/09/2025", hours: 3, lessons: 63 },
@@ -19,6 +19,40 @@ const certifications = [
   { name: "Figma Basics", date: "16/10/2025", hours: 1, lessons: 16 },
   { name: "Business English", date: "09/12/2025", hours: 1, lessons: 10 },
 ];
+
+const anthropicCerts = [
+  { name: "Claude 101" },
+  { name: "Claude Code 101" },
+  { name: "Claude Code in Action" },
+  { name: "Claude Platform 101" },
+  { name: "Introduction to Claude Cowork" },
+  { name: "Introduction to Agent Skills" },
+  { name: "Introduction to Model Context Protocol" },
+  { name: "Claude with the Anthropic API" },
+  { name: "Claude with Amazon Bedrock" },
+  { name: "Claude with Google Vertex AI" },
+  { name: "AI Fluency: Framework & Foundations" },
+  { name: "AI Fluency for Nonprofits" },
+  { name: "AI Fluency for Small Businesses" },
+  { name: "Teaching the AI Fluency Framework" },
+];
+
+const cardBase: React.CSSProperties = {
+  background: "rgba(255,255,255,0.04)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "1rem",
+};
+
+const cardHover = {
+  enter: (el: HTMLDivElement) => {
+    el.style.background = "rgba(255,255,255,0.07)";
+    el.style.border = "1px solid rgba(255,192,0,0.25)";
+  },
+  leave: (el: HTMLDivElement) => {
+    el.style.background = "rgba(255,255,255,0.04)";
+    el.style.border = "1px solid rgba(255,255,255,0.08)";
+  },
+};
 
 interface CertificationsProps { lang: Lang }
 
@@ -38,64 +72,132 @@ export function Certifications({ lang }: CertificationsProps) {
           className="mb-16"
         >
           <p className="lambo-label mb-4">{t.label}</p>
-          <div className="flex items-end gap-6 flex-wrap">
-            <h2 className="lambo-heading" style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}>
-              {t.headline}
-            </h2>
-            <p className="text-white/35 text-sm mb-1" style={{ letterSpacing: "0.04em" }}>
-              {t.provider}
-            </p>
-          </div>
+          <h2 className="lambo-heading" style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}>
+            {t.headline}
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {certifications.map((cert, i) => (
-            <motion.div
-              key={cert.name}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.05 + i * 0.04, ease: [0.25, 0.1, 0.25, 1] }}
-              className="group relative flex flex-col justify-between p-5 transition-all duration-300"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "1.25rem",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.07)";
-                (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(255,192,0,0.25)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.04)";
-                (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(255,255,255,0.08)";
-              }}
-            >
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <h3 className="text-white text-sm leading-snug" style={{ fontWeight: 400 }}>
-                  {cert.name}
-                </h3>
-                <span
-                  className="shrink-0 flex items-center gap-1 px-2 py-0.5 text-[10px]"
-                  style={{
-                    background: "#FFC000",
-                    borderRadius: "999px",
-                    color: "#000000",
-                    fontWeight: 500,
-                    letterSpacing: "0.04em",
-                  }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Anthropic column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <span
+                className="text-xs uppercase tracking-widest"
+                style={{ color: "#FFC000", letterSpacing: "0.1em" }}
+              >
+                Anthropic
+              </span>
+              <span
+                className="px-2 py-0.5 text-[10px]"
+                style={{
+                  background: "#000",
+                  border: "1px solid #494949",
+                  color: "#969696",
+                  borderRadius: "999px",
+                }}
+              >
+                14
+              </span>
+              <span className="text-white/30 text-xs">2026</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {anthropicCerts.map((cert, i) => (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.15 + i * 0.035, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="flex flex-col justify-between p-3.5"
+                  style={cardBase}
+                  onMouseEnter={(e) => cardHover.enter(e.currentTarget)}
+                  onMouseLeave={(e) => cardHover.leave(e.currentTarget)}
                 >
-                  ✓ {t.verified}
-                </span>
-              </div>
+                  <h3 className="text-white text-xs leading-snug mb-3" style={{ fontWeight: 400 }}>
+                    {cert.name}
+                  </h3>
+                  <span
+                    className="self-start flex items-center gap-1 px-2 py-0.5 text-[10px]"
+                    style={{
+                      background: "#FFC000",
+                      borderRadius: "999px",
+                      color: "#000000",
+                      fontWeight: 500,
+                      letterSpacing: "0.04em",
+                    }}
+                  >
+                    ✓ {t.verified}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-              <div className="flex items-center justify-between">
-                <span className="text-white/35 text-xs">{cert.date}</span>
-                <span className="text-white/35 text-xs">
-                  {cert.hours}h · {cert.lessons} {t.lessons}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+          {/* Learnn column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <span
+                className="text-xs uppercase tracking-widest"
+                style={{ color: "#FFC000", letterSpacing: "0.1em" }}
+              >
+                Learnn
+              </span>
+              <span
+                className="px-2 py-0.5 text-[10px]"
+                style={{
+                  background: "#000",
+                  border: "1px solid #494949",
+                  color: "#969696",
+                  borderRadius: "999px",
+                }}
+              >
+                15
+              </span>
+              <span className="text-white/30 text-xs">2025</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {learnnCerts.map((cert, i) => (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.035, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="flex flex-col justify-between p-3.5"
+                  style={cardBase}
+                  onMouseEnter={(e) => cardHover.enter(e.currentTarget)}
+                  onMouseLeave={(e) => cardHover.leave(e.currentTarget)}
+                >
+                  <h3 className="text-white text-xs leading-snug mb-3" style={{ fontWeight: 400 }}>
+                    {cert.name}
+                  </h3>
+                  <div className="flex items-center justify-between gap-1">
+                    <span
+                      className="flex items-center gap-1 px-2 py-0.5 text-[10px] shrink-0"
+                      style={{
+                        background: "#FFC000",
+                        borderRadius: "999px",
+                        color: "#000000",
+                        fontWeight: 500,
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      ✓ {t.verified}
+                    </span>
+                    <span className="text-white/30 text-[10px] text-right">
+                      {cert.hours}h · {cert.lessons} {t.lessons}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
