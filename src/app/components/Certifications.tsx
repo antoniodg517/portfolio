@@ -27,13 +27,19 @@ const anthropicCerts = [
   { name: "Claude Platform 101" },
   { name: "Introduction to Claude Cowork" },
   { name: "Introduction to Agent Skills" },
+  { name: "Introduction to Subagents" },
   { name: "Introduction to Model Context Protocol" },
-  { name: "Claude with the Anthropic API" },
+  { name: "Model Context Protocol: Advanced Topics" },
+  { name: "Building with the Claude API" },
   { name: "Claude with Amazon Bedrock" },
   { name: "Claude with Google Vertex AI" },
   { name: "AI Fluency: Framework & Foundations" },
+  { name: "AI Fluency: AI Capabilities & Limitations" },
   { name: "AI Fluency for Nonprofits" },
   { name: "AI Fluency for Small Businesses" },
+  { name: "AI Fluency for Educators" },
+  { name: "AI Fluency for Students" },
+  { name: "AI Fluency for Builders" },
   { name: "Teaching the AI Fluency Framework" },
 ];
 
@@ -100,7 +106,7 @@ export function Certifications({ lang }: CertificationsProps) {
                   borderRadius: "999px",
                 }}
               >
-                14
+                20
               </span>
               <span className="text-white/30 text-xs">2026</span>
             </div>

@@ -144,7 +144,7 @@ export const translations = {
     },
     certifications: {
       label: "Certifications",
-      headline: "29 verified certifications.",
+      headline: "35 verified certifications.",
       provider: "Learnn — 2025",
       verified: "Verified",
       lessons: "lessons",
@@ -294,7 +294,7 @@ export const translations = {
     },
     certifications: {
       label: "Certificazioni",
-      headline: "29 certificazioni verificate.",
+      headline: "35 certificazioni verificate.",
       provider: "Learnn — 2025",
       verified: "Verificato",
       lessons: "lezioni",
