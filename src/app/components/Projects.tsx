@@ -16,7 +16,7 @@ const projectMeta = [
   },
   {
     tags: ["Next.js", "Supabase", "TypeScript", "Admin Panel", "Vercel"],
-    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=500&fit=crop&auto=format",
+    image: "/project-assets/merengue-vault.jpg",
     href: "https://adg-merengue-vault.vercel.app/",
   },
 ];
