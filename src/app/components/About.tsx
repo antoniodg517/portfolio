@@ -1,71 +1,26 @@
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
+import { Bot, Code2, GraduationCap, Languages } from "lucide-react";
 import { type Lang, translations } from "../i18n";
 
-interface AboutProps { lang: Lang }
+const statIcons = [GraduationCap, Languages, Code2, Bot];
 
-export function About({ lang }: AboutProps) {
+export function About({ lang }: { lang: Lang }) {
   const t = translations[lang].about;
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="py-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            <p className="lambo-label mb-6">
-              {t.label}
-            </p>
-            <h2
-              className="lambo-heading mb-8"
-              style={{ fontSize: "clamp(2.35rem,5vw,5rem)" }}
-            >
-              {t.headline1}
-              <br />
-              {t.headline2}
-            </h2>
-            <div className="lambo-copy space-y-4" style={{ fontSize: "1.0625rem" }}>
-              <p>{t.p1}</p>
-              <p>{t.p2}</p>
-              <p>{t.p3}</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="grid grid-cols-2 gap-4 pt-12 md:pt-0"
-          >
-            {t.stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.25 + i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-                className="lambo-card p-6"
-                style={{
-                  background: "#202020",
-                  border: "1px solid #202020",
-                }}
-              >
-                <div
-                  className="mb-1"
-                  style={{ fontSize: "2.5rem", fontWeight: 400, letterSpacing: "0", color: "#FFCE3E" }}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-white/55 text-sm uppercase" style={{ letterSpacing: "0.04em" }}>{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+    <section id="about" className="content-section section-shell">
+      <div className="section-kicker"><span>01</span>{t.label}</div>
+      <div className="about-grid">
+        <motion.div className="section-heading" initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }}>
+          <h2>{t.headline1}<br /><em>{t.headline2}</em></h2>
+          <div className="code-note" aria-hidden="true"><span>const</span> approach = <b>human</b> + technology;</div>
+        </motion.div>
+        <motion.div className="about-copy" initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ delay: .1 }}>
+          <p>{t.p1}</p><p>{t.p2}</p><p>{t.p3}</p>
+          <blockquote>“{lang === "it" ? "Tecnologia utile, persone al centro." : "Useful technology, people at the center."}”</blockquote>
+        </motion.div>
+      </div>
+      <div className="stat-grid">
+        {t.stats.map((stat, index) => { const Icon = statIcons[index]; return <motion.article key={stat.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .07 }}><Icon /><strong>{stat.value}</strong><span>{stat.label}</span></motion.article>; })}
       </div>
     </section>
   );

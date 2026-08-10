@@ -56,7 +56,7 @@ export const translations = {
         {
           title: "ADG — Merengue Vault",
           description:
-            "Full-stack collector's vault for Real Madrid trading cards. Features a public storefront for browsing and filtering the collection, and a private admin panel for complete inventory management, card uploads, and data control.",
+            "Full-stack, multi-page platform for my private Real Madrid trading card collection. It combines a searchable catalogue, sale and archive sections, grails and a Top XI with a separate admin panel, serverless APIs, image uploads, Supabase authentication and cloud saves, plus two browser games with persistent achievements.",
           year: "2025-2026",
           status: "Full-stack app",
         },
@@ -206,7 +206,7 @@ export const translations = {
         {
           title: "ADG — Merengue Vault",
           description:
-            "Vault full-stack per il collezionismo di trading card del Real Madrid. Include uno storefront pubblico per navigare e filtrare la collezione, e un pannello admin privato per la gestione completa dell'inventario, upload delle card e controllo dei dati.",
+            "Piattaforma full-stack multipagina per la mia collezione privata di trading card del Real Madrid. Unisce catalogo con ricerca, sezioni vendita e archivio, grail e Top XI a un pannello admin separato, API serverless, upload delle immagini, autenticazione e cloud save Supabase, oltre a due giochi browser con obiettivi persistenti.",
           year: "2025-2026",
           status: "Full-stack app",
         },
