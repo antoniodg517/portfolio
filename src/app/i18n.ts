@@ -54,7 +54,7 @@ export const translations = {
           status: "Web development",
         },
         {
-          title: "ADG — Merengue Vault",
+          title: "ADG Merengue Vault",
           description:
             "Full-stack, multi-page platform for my private Real Madrid trading card collection. It combines a searchable catalogue, sale and archive sections, grails and a Top XI with a separate admin panel, serverless APIs, image uploads, Supabase authentication and cloud saves, plus two browser games with persistent achievements.",
           year: "2025-2026",
@@ -68,29 +68,29 @@ export const translations = {
       items: [
         {
           role: "Web Developer",
-          org: "Il Meridiano Sport — Poggiomarino (NA)",
-          period: "Nov 2025 – Jan 2026",
+          org: "Il Meridiano Sport - Poggiomarino (NA)",
+          period: "Nov 2025 - Jan 2026",
           description:
             "Designed and developed ilmeridianosport.it, managed the platform structure and content, optimized the user experience and page organization, and provided technical support and maintenance.",
         },
         {
           role: "IT Support",
-          org: "Pro Loco Poggiomarino — Poggiomarino (NA)",
-          period: "Sep 2021 – Jul 2022",
+          org: "Pro Loco Poggiomarino - Poggiomarino (NA)",
+          period: "Sep 2021 - Jul 2022",
           description:
             "Handled maintenance and technical support for computers and IT devices, supported operational and administrative activities, helped organize the 31st National Poetry Award, and managed the association website.",
         },
         {
           role: "Computer Science Degree",
-          org: "University of Salerno (UNISA) — Fisciano (SA)",
-          period: "Sep 2017 – Mar 2026",
+          org: "University of Salerno (UNISA) - Fisciano (SA)",
+          period: "Sep 2017 - Mar 2026",
           description:
             "Studied software programming, web development, databases and SQL, algorithms and data structures, operating systems and networks, AI, Large Language Models, Human-Robot Interaction, Git, and collaborative software development.",
         },
         {
           role: "IT Diploma",
-          org: "I.I.S. Enrico Fermi — Sarno (SA)",
-          period: "Sep 2012 – Jul 2017",
+          org: "I.I.S. Enrico Fermi - Sarno (SA)",
+          period: "Sep 2012 - Jul 2017",
           description:
             "Built foundations in software development, computer systems and networks, databases, computer architecture, electronics, problem solving, and teamwork.",
         },
@@ -104,7 +104,7 @@ export const translations = {
       label: "Contact",
       headline1: "Let's talk about",
       headline2: "web, IT and AI.",
-      sub: "I'm based in Poggiomarino (NA) and open to opportunities in web development, IT support, and AI-assisted software development.",
+      sub: "From Poggiomarino (NA), I design web interfaces and practical software across IT support and AI-assisted development.",
       links: [
         { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
@@ -138,14 +138,14 @@ export const translations = {
           title: "Backpacking",
           kicker: "Travel & cultures",
           description:
-            "Backpacking & Travel. Exploring new countries and cultures develops curiosity, adaptability and open-mindedness — qualities I consider fundamental both in life and at work.",
+            "Backpacking & Travel. Exploring new countries and cultures develops curiosity, adaptability and open-mindedness. I consider these qualities fundamental both in life and at work.",
         },
       ],
     },
     certifications: {
       label: "Certifications",
       headline: "35 verified certifications.",
-      provider: "Learnn — 2025",
+      provider: "Learnn, 2025",
       verified: "Verified",
       lessons: "lessons",
     },
@@ -204,7 +204,7 @@ export const translations = {
           status: "Web development",
         },
         {
-          title: "ADG — Merengue Vault",
+          title: "ADG Merengue Vault",
           description:
             "Piattaforma full-stack multipagina per la mia collezione privata di trading card del Real Madrid. Unisce catalogo con ricerca, sezioni vendita e archivio, grail e Top XI a un pannello admin separato, API serverless, upload delle immagini, autenticazione e cloud save Supabase, oltre a due giochi browser con obiettivi persistenti.",
           year: "2025-2026",
@@ -218,29 +218,29 @@ export const translations = {
       items: [
         {
           role: "Web Developer",
-          org: "Il Meridiano Sport — Poggiomarino (NA)",
-          period: "Nov 2025 – Gen 2026",
+          org: "Il Meridiano Sport - Poggiomarino (NA)",
+          period: "Nov 2025 - Gen 2026",
           description:
             "Progettazione e sviluppo del sito ilmeridianosport.it, gestione della struttura e dei contenuti della piattaforma, ottimizzazione dell'esperienza utente e dell'organizzazione delle pagine, supporto tecnico e manutenzione.",
         },
         {
           role: "Supporto IT",
-          org: "Pro Loco Poggiomarino — Poggiomarino (NA)",
-          period: "Set 2021 – Lug 2022",
+          org: "Pro Loco Poggiomarino - Poggiomarino (NA)",
+          period: "Set 2021 - Lug 2022",
           description:
             "Manutenzione e supporto tecnico di computer e dispositivi informatici, supporto alle attività operative e amministrative, organizzazione del 31º Premio Nazionale di Poesia e gestione del sito web dell'associazione.",
         },
         {
           role: "Laurea in Informatica",
-          org: "Università degli Studi di Salerno (UNISA) — Fisciano (SA)",
-          period: "Set 2017 – Mar 2026",
+          org: "Università degli Studi di Salerno (UNISA) - Fisciano (SA)",
+          period: "Set 2017 - Mar 2026",
           description:
             "Percorso su programmazione software e sviluppo web, database e SQL, algoritmi e strutture dati, sistemi operativi e reti, Intelligenza Artificiale, Large Language Models, Human-Robot Interaction, Git e sviluppo collaborativo.",
         },
         {
           role: "Diploma di Perito Informatico",
-          org: "I.I.S. Enrico Fermi — Sarno (SA)",
-          period: "Set 2012 – Lug 2017",
+          org: "I.I.S. Enrico Fermi - Sarno (SA)",
+          period: "Set 2012 - Lug 2017",
           description:
             "Formazione su sviluppo software, sistemi informatici e reti, database, architettura dei computer, fondamenti di elettronica e informatica, problem solving e lavoro di gruppo.",
         },
@@ -254,7 +254,7 @@ export const translations = {
       label: "Contatti",
       headline1: "Parliamo di",
       headline2: "web, IT e AI.",
-      sub: "Sono a Poggiomarino (NA) e sono aperto a opportunità in sviluppo web, supporto IT e sviluppo software assistito dall'AI.",
+      sub: "Da Poggiomarino (NA), progetto interfacce web e software concreto tra supporto IT e sviluppo assistito dall'AI.",
       links: [
         { label: "LinkedIn", sub: "antonio-del-giudice" },
         { label: "GitHub", sub: "github.com/antoniodg517" },
@@ -288,14 +288,14 @@ export const translations = {
           title: "Backpacking",
           kicker: "Travel",
           description:
-            "Backpacking & Travel. Esplorare nuovi Paesi e culture sviluppa curiosità, adattabilità e apertura mentale — qualità che considero fondamentali sia nella vita che nel lavoro.",
+            "Backpacking & Travel. Esplorare nuovi Paesi e culture sviluppa curiosità, adattabilità e apertura mentale. Considero queste qualità fondamentali sia nella vita che nel lavoro.",
         },
       ],
     },
     certifications: {
       label: "Certificazioni",
       headline: "35 certificazioni verificate.",
-      provider: "Learnn — 2025",
+      provider: "Learnn, 2025",
       verified: "Verificato",
       lessons: "lezioni",
     },

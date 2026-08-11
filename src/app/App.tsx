@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { type Lang } from "./i18n";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
@@ -16,43 +17,41 @@ const sectionIds = ["hero", "about", "skills", "projects", "experience", "certif
 export default function App() {
   const [lang, setLang] = useState<Lang>("it");
   const [active, setActive] = useState("hero");
-  const progressRef = useRef<HTMLSpanElement>(null);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: .3 });
+  const auraY = useTransform(scrollYProgress, [0, 1], ["-8%", "74%"]);
+  const auraRotate = useTransform(scrollYProgress, [0, 1], [0, 155]);
 
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
 
   useEffect(() => {
-    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    const updatePageState = () => {
-      const marker = window.scrollY + window.innerHeight * .35;
-      const current = sections.reduce((selected, section) => section.offsetTop <= marker ? section : selected, sections[0]);
-      if (current?.id) setActive(current.id);
-      const available = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = available > 0 ? Math.min(window.scrollY / available, 1) : 0;
-      if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
-    };
-    updatePageState();
-    window.addEventListener("scroll", updatePageState, { passive: true });
-    window.addEventListener("resize", updatePageState);
-    return () => {
-      window.removeEventListener("scroll", updatePageState);
-      window.removeEventListener("resize", updatePageState);
-    };
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target.id) setActive(visible.target.id);
+    }, { rootMargin: "-20% 0px -58%", threshold: [0, .15, .35, .6] });
+    sectionIds.forEach((id) => { const section = document.getElementById(id); if (section) observer.observe(section); });
+    return () => observer.disconnect();
   }, []);
 
   const go = (id: string) => {
     setActive(id);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    const target = document.getElementById(id);
+    if (!target) return;
+    const distance = Math.abs(target.getBoundingClientRect().top);
+    const behavior = reduce || distance > window.innerHeight * 2.5 ? ("instant" as ScrollBehavior) : "smooth";
+    target.scrollIntoView({ behavior, block: "start" });
   };
 
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main-content">{lang === "it" ? "Vai al contenuto" : "Skip to content"}</a>
-      <div className="scroll-progress" aria-hidden="true"><span ref={progressRef} /></div>
-      <div className="ambient ambient--one" aria-hidden="true" />
-      <div className="ambient ambient--two" aria-hidden="true" />
+      <div className="scroll-progress" aria-hidden="true"><motion.span style={{ scaleX: progress }} /></div>
+      <div className="global-scene" aria-hidden="true">
+        <motion.div className="global-orb" style={{ y: auraY, rotate: auraRotate }}><i /><i /></motion.div>
+      </div>
       <Nav lang={lang} onLangChange={setLang} active={active} onNavigate={go} />
       <main id="main-content">
         <Hero lang={lang} />

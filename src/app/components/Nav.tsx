@@ -25,9 +25,9 @@ export function Nav({ lang, onLangChange, active, onNavigate }: NavProps) {
 
   return (
     <header className="site-header">
-      <div className="nav-shell glass-surface">
-        <button className="brand" onClick={() => choose("hero")} aria-label="Antonio Del Giudice — Home">
-          <span>ADG</span><i />
+      <div className="nav-shell">
+        <button className="brand" onClick={() => choose("hero")} aria-label="Antonio Del Giudice - Home">
+          <span>ADG.</span><small>{lang === "it" ? "Portfolio 2026" : "Portfolio 2026"}</small>
         </button>
         <nav className="desktop-nav" aria-label={lang === "it" ? "Navigazione principale" : "Main navigation"}>
           {links.slice(0, 5).map(([id, label]) => <button key={id} className={active === id ? "is-active" : ""} onClick={() => choose(id)}>{label}</button>)}
@@ -41,7 +41,7 @@ export function Nav({ lang, onLangChange, active, onNavigate }: NavProps) {
         </div>
       </div>
       <AnimatePresence>
-        {open && <motion.nav className="mobile-nav glass-surface" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+        {open && <motion.nav className="mobile-nav" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
           {links.map(([id, label], index) => <button key={id} className={active === id ? "is-active" : ""} onClick={() => choose(id)}><span>0{index + 1}</span>{label}</button>)}
           <button className="mobile-contact" onClick={() => choose("contact")}>{t.cta}<ArrowUpRight /></button>
         </motion.nav>}

@@ -1,37 +1,58 @@
-import { motion } from "motion/react";
-import { ArrowDown, ArrowUpRight, Code2, Cpu, Download, Sparkles } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { ArrowUpRight, Download } from "lucide-react";
 import { type Lang, translations } from "../i18n";
 
 export function Hero({ lang }: { lang: Lang }) {
   const t = translations[lang].hero;
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const { scrollY } = useScroll();
+  const reduce = useReducedMotion();
+  const portraitY = useTransform(scrollY, [0, 900], [0, reduce ? 0 : 18]);
+  const orbitRotate = useTransform(scrollY, [0, 1200], [0, reduce ? 0 : 42]);
+  const summary = lang === "it"
+    ? "Sviluppo prodotti web e software assistito dall'AI, con metodo tecnico e attenzione alle persone."
+    : "I build web products and AI-assisted software with technical rigor and a human focus.";
+  const lines = lang === "it"
+    ? ["profilo: web developer", "focus: web, IT, AI", "metodo: capire, costruire, migliorare"]
+    : ["profile: web developer", "focus: web, IT, AI", "method: understand, build, improve"];
   return (
-    <section id="hero" className="hero section-shell">
-      <motion.div className="hero-copy" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75 }}>
-        <div className="availability"><i />{t.badge}</div>
-        <h1><span>{t.title1}</span><span>{t.title2}</span></h1>
-        <p className="hero-role">{t.subtitle}</p>
-        <p className="hero-summary">{t.tagline}</p>
-        <div className="hero-actions">
-          <button className="button button--primary" onClick={() => go("projects")}>{t.viewProjects}<ArrowUpRight /></button>
-          <a className="text-link" href="/Antonio_Del_Giudice_CV.pdf" download>{t.downloadCV}<Download /></a>
-        </div>
-        <div className="hero-services" aria-label={lang === "it" ? "Ambiti" : "Areas"}>
-          <span><Code2 />Web development</span><span><Cpu />IT support</span><span><Sparkles />Applied AI</span>
-        </div>
-        <div className="code-ribbon" aria-hidden="true"><div><code><span className="syntax-purple">const</span> <span className="syntax-blue">ideas</span> = <span className="syntax-orange">"working software"</span>;</code><code><span className="syntax-purple">while</span> (<span className="syntax-yellow">learning</span>) {'{'} <span className="syntax-cyan">build</span>(); {'}'}</code><code><span className="syntax-purple">return</span> <span className="syntax-green">impact</span>;</code></div></div>
-      </motion.div>
-      <motion.div className="hero-visual" initial={{ opacity: 0, scale: .96, x: 24 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ delay: .18, duration: .85 }}>
-        <div className="portrait-frame glass-surface">
-          <img src="/profile.jpg" alt="Antonio Del Giudice" loading="eager" />
-          <div className="portrait-shade" />
-          <div className="portrait-caption"><span>Antonio Del Giudice</span><small>Poggiomarino · Italy</small></div>
-          <div className="focus-corners" aria-hidden="true"><i /><i /><i /><i /></div>
-        </div>
-        <motion.div className="micro-card micro-card--top code-card glass-surface" animate={{ y: [0, -7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}><code><span className="syntax-purple">const</span> <span className="syntax-blue">Antonio</span> = <span className="syntax-orange">"developer"</span>;<i className="code-caret" /></code></motion.div>
-        <motion.div className="micro-card micro-card--bottom glass-surface" animate={{ y: [0, 8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: .4 }}><code><span className="syntax-purple">build</span>: <b>successful</b></code><span>0 errors</span></motion.div>
-      </motion.div>
-      <button className="scroll-cue" onClick={() => go("about")}><ArrowDown /><span>{lang === "it" ? "Scopri il mio profilo" : "Discover my profile"}</span></button>
+    <section id="hero" className="hero">
+      <div className="hero-stage section-shell">
+        <motion.div className="hero-workbench" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75, ease: [0.16, 1, .3, 1] }}>
+          <div className="hero-editor-bar">
+            <span className="editor-file"><i />portfolio.tsx</span>
+            <span className="editor-path">src / antonio / index</span>
+            <span className="editor-mode">UTF-8&nbsp;&nbsp; React + TypeScript</span>
+          </div>
+          <div className="hero-editor-body">
+            <div className="hero-gutter" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <span key={index}>{String(index + 1).padStart(2, "0")}</span>)}</div>
+            <div className="hero-copy">
+              <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }}>{t.subtitle}</motion.p>
+              <h1 className="hero-title" aria-label={`${t.title1} ${t.title2}`}>
+                <motion.span initial={{ opacity: 0, y: 42 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .12 }}>{t.title1}</motion.span>
+                <motion.span initial={{ opacity: 0, y: 42 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .22 }}>{t.title2}</motion.span>
+              </h1>
+              <motion.p className="hero-summary" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .48 }}>{summary}</motion.p>
+              <motion.div className="hero-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .58 }}>
+                <button className="button button--light" onClick={() => go("projects")}>{t.viewProjects}<ArrowUpRight /></button>
+                <a className="text-link" href="/Antonio_Del_Giudice_CV.pdf" download>{t.downloadCV}<Download /></a>
+              </motion.div>
+              <div className="hero-terminal" aria-label={lang === "it" ? "Profilo sintetico" : "Profile summary"}>
+                {lines.map((line, index) => <motion.code key={line} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .68 + index * .1 }}><span>{index === lines.length - 1 ? "return" : "const"}</span> {line};</motion.code>)}
+              </div>
+            </div>
+            <div className="hero-visual">
+              <motion.div className="hero-orbit" style={{ rotate: orbitRotate }} initial={{ opacity: 0, scale: .82 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: .2 }} aria-hidden="true"><i /><i /><i /></motion.div>
+              <motion.div className="hero-portrait" style={{ y: portraitY }} initial={{ opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: .2, ease: [0.16, 1, .3, 1] }}>
+                <div className="portrait-glow" aria-hidden="true" />
+                <img src="/profile.jpg" alt="Antonio Del Giudice" loading="eager" />
+              </motion.div>
+              <motion.div className="hero-signal" animate={reduce ? undefined : { rotate: 360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }} aria-hidden="true"><span>build</span><span>learn</span><span>ship</span></motion.div>
+            </div>
+          </div>
+          <div className="hero-statusbar"><span>main*</span><span>0 errors</span><span>{lang === "it" ? "pronto" : "ready"}</span></div>
+        </motion.div>
+      </div>
     </section>
   );
 }

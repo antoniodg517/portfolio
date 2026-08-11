@@ -4,7 +4,7 @@ import { type Lang } from "../i18n";
 export function Footer({ lang, onNavigate }: { lang: Lang; onNavigate: (id: string) => void }) {
   return (
     <footer className="site-footer section-shell">
-      <button className="footer-brand" onClick={() => onNavigate("hero")}><span>ADG</span><i /></button>
+      <button className="footer-brand" onClick={() => onNavigate("hero")}><span>ADG.</span></button>
       <p>© 2026 Antonio Del Giudice · {lang === "it" ? "Progettato e sviluppato con cura." : "Designed and developed with care."}</p>
       <div>
         <a href="https://github.com/antoniodg517" target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>
