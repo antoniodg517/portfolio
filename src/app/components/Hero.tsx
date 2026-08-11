@@ -44,7 +44,6 @@ export function Hero({ lang }: { lang: Lang }) {
             <div className="hero-visual">
               <motion.div className="hero-orbit" style={{ rotate: orbitRotate }} initial={{ opacity: 0, scale: .82 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: .2 }} aria-hidden="true"><i /><i /><i /></motion.div>
               <motion.div className="hero-portrait" style={{ y: portraitY }} initial={{ opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: .2, ease: [0.16, 1, .3, 1] }}>
-                <div className="portrait-glow" aria-hidden="true" />
                 <img src="/profile.jpg" alt="Antonio Del Giudice" loading="eager" />
               </motion.div>
               <motion.div className="hero-signal" animate={reduce ? undefined : { rotate: 360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }} aria-hidden="true"><span>build</span><span>learn</span><span>ship</span></motion.div>
