@@ -6,7 +6,7 @@ import { type Lang, translations } from "../i18n";
 const projectMeta = [
   {
     slug: "merengue-vault",
-    image: "/project-assets/merengue-vault-top-xi.jpg",
+    image: "/project-assets/merengue-vault-hall.jpg",
     href: "https://adg-merengue-vault.vercel.app/",
     tags: ["Vanilla JS", "Vite", "Supabase", "Vercel Functions", "Resend"],
     signature: "Real Madrid / Sports Cards / Private Collection",
