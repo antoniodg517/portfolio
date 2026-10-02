@@ -40,6 +40,13 @@ export const translations = {
       headline: "Projects and work from my CV.",
       items: [
         {
+          title: "ADG Merengue Vault",
+          description:
+            "Full-stack, multi-page platform for my private Real Madrid trading card collection. It combines a searchable catalogue, sale and archive sections, grails and a Top XI with a separate admin panel, serverless APIs, image uploads, Supabase authentication and cloud saves, plus two browser games with persistent achievements.",
+          year: "2025-2026",
+          status: "Full-stack app",
+        },
+        {
           title: "The Postural Interview",
           description:
             "Human-Robot Interaction project integrating Large Language Models into a Furhat social robot. The work includes conversational AI, Kotlin and Java development, sEMG signal analysis, prompt engineering, and experimental data management.",
@@ -47,18 +54,18 @@ export const translations = {
           status: "HRI project",
         },
         {
-          title: "Il Meridiano Sport Website",
+          title: "Kore Studio",
           description:
-            "Design and development of ilmeridianosport.it, including site structure, content management, user experience optimization, page organization, technical support, and maintenance.",
-          year: "2025-2026",
-          status: "Web development",
+            "Design and development of korestudioadv.it, the website of a creative and communication agency based in Torre del Greco and Casoria. A bold, animated interface built with Next.js and React that presents the agency's services, client work, brand story and partner network, with a reduced-motion option and a fully responsive layout.",
+          year: "2026",
+          status: "Web design & development",
         },
         {
-          title: "ADG Merengue Vault",
+          title: "DimeSport",
           description:
-            "Full-stack, multi-page platform for my private Real Madrid trading card collection. It combines a searchable catalogue, sale and archive sections, grails and a Top XI with a separate admin panel, serverless APIs, image uploads, Supabase authentication and cloud saves, plus two browser games with persistent achievements.",
-          year: "2025-2026",
-          status: "Full-stack app",
+            "Design and development of dimesport.it, a live-first sports magazine covering football, transfer news and other sports. Built on WordPress with a custom editorial theme: an automatically composed front page, a breaking-news ticker, competition-based navigation, standings and dedicated advertising spaces.",
+          year: "2026",
+          status: "Web design & development",
         },
       ],
     },
@@ -190,6 +197,13 @@ export const translations = {
       headline: "Progetti ed esperienze dal mio CV.",
       items: [
         {
+          title: "ADG Merengue Vault",
+          description:
+            "Piattaforma full-stack multipagina per la mia collezione privata di trading card del Real Madrid. Unisce catalogo con ricerca, sezioni vendita e archivio, grail e Top XI a un pannello admin separato, API serverless, upload delle immagini, autenticazione e cloud save Supabase, oltre a due giochi browser con obiettivi persistenti.",
+          year: "2025-2026",
+          status: "Full-stack app",
+        },
+        {
           title: "The Postural Interview",
           description:
             "Progetto di Human-Robot Interaction con integrazione di Large Language Models in un robot sociale Furhat. Include AI conversazionale, sviluppo in Kotlin e Java, analisi di segnali sEMG, prompt engineering e gestione di dati sperimentali.",
@@ -197,18 +211,18 @@ export const translations = {
           status: "Progetto HRI",
         },
         {
-          title: "Sito Il Meridiano Sport",
+          title: "Kore Studio",
           description:
-            "Progettazione e sviluppo del sito ilmeridianosport.it, gestione della struttura e dei contenuti, ottimizzazione dell'esperienza utente, organizzazione delle pagine, supporto tecnico e manutenzione.",
-          year: "2025-2026",
-          status: "Web development",
+            "Progettazione e sviluppo di korestudioadv.it, il sito di un'agenzia di marketing e comunicazione con sede a Torre del Greco e Casoria. Un'interfaccia d'impatto e animata, realizzata con Next.js e React, che presenta servizi, lavori, brand e network di partner dell'agenzia, con opzione per fermare le animazioni e layout completamente responsive.",
+          year: "2026",
+          status: "Web design & development",
         },
         {
-          title: "ADG Merengue Vault",
+          title: "DimeSport",
           description:
-            "Piattaforma full-stack multipagina per la mia collezione privata di trading card del Real Madrid. Unisce catalogo con ricerca, sezioni vendita e archivio, grail e Top XI a un pannello admin separato, API serverless, upload delle immagini, autenticazione e cloud save Supabase, oltre a due giochi browser con obiettivi persistenti.",
-          year: "2025-2026",
-          status: "Full-stack app",
+            "Progettazione e sviluppo di dimesport.it, magazine sportivo live-first dedicato a calcio, calciomercato e altri sport. Realizzato su WordPress con un tema editoriale su misura: prima pagina composta automaticamente dagli articoli, ticker delle ultime notizie, navigazione per competizioni, classifiche e spazi pubblicitari dedicati.",
+          year: "2026",
+          status: "Web design & development",
         },
       ],
     },

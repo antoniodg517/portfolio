@@ -19,22 +19,28 @@ const projectMeta = [
     signature: "Human-Robot Interaction / Experimental Research",
   },
   {
-    slug: "il-meridiano-sport",
-    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1600&h=1000&fit=crop&auto=format",
-    href: "https://ilmeridianosport.it",
-    tags: ["Web", "UX", "Content", "Maintenance"],
-    signature: "Sports Media / Web Design / Maintenance",
+    slug: "kore-studio",
+    image: "/project-assets/kore-studio.jpg",
+    href: "https://korestudioadv.it/",
+    tags: ["Next.js", "React", "UI Design", "Motion", "Responsive"],
+    signature: "Creative Agency / Web Design / Development",
+  },
+  {
+    slug: "dimesport",
+    image: "/project-assets/dimesport.jpg",
+    href: "https://dimesport.it/",
+    tags: ["WordPress", "Custom Theme", "PHP", "Editorial UX", "Responsive"],
+    signature: "Sports Magazine / Web Design / Development",
   },
 ];
-
-const projectOrder = [2, 0, 1];
 
 export function Projects({ lang }: { lang: Lang }) {
   const t = translations[lang].projects;
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
-  const projects = projectOrder.map((index) => t.items[index]);
+  const projects = t.items;
   const item = projects[active];
+  const total = String(projects.length).padStart(2, "0");
   const meta = projectMeta[active];
 
   return (
@@ -42,7 +48,7 @@ export function Projects({ lang }: { lang: Lang }) {
       <div className="section-kicker"><span>03</span>{t.label}<i /></div>
       <div className="projects-intro">
         <div className="section-heading"><h2>{lang === "it" ? "Lavori selezionati." : "Selected work."}</h2></div>
-        <p>{lang === "it" ? "Tre progetti diversi. Passa sui titoli per cambiare scena e apri quello che vuoi esplorare." : "Three different projects. Move across the titles to change the scene, then open the one you want to explore."}</p>
+        <p>{lang === "it" ? "Quattro progetti diversi. Passa sui titoli per cambiare scena e apri quello che vuoi esplorare." : "Four different projects. Move across the titles to change the scene, then open the one you want to explore."}</p>
       </div>
 
       <div className="project-showcase">
@@ -68,7 +74,7 @@ export function Projects({ lang }: { lang: Lang }) {
 
         <article id="active-project" className="project-stage" role="tabpanel">
           <div className="project-stage-head">
-            <span>N°0{active + 1} / 03</span>
+            <span>N°0{active + 1} / {total}</span>
             <p>{meta.signature}</p>
             <div aria-hidden="true">{projects.map((_, index) => <span key={index} className={active === index ? "is-active" : ""}>0{index + 1}</span>)}</div>
           </div>

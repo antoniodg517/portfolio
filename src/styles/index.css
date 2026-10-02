@@ -576,9 +576,9 @@ body, .site-shell { background: #171716; }
   .hero-portrait { width: min(44vw, 22rem); }
   .hero-signal { width: min(68vw, 31rem); }
   .project-showcase { grid-template-columns: 1fr; gap: 1.3rem; }
-  .project-rail { display: grid; grid-template-columns: repeat(3,1fr); }
+  .project-rail { display: grid; grid-template-columns: repeat(2,1fr); }
   .project-rail button { min-height: 8.2rem; border-right: 1px solid rgba(255,255,255,.12); padding-inline: .8rem; }
-  .project-rail button:last-child { border-right: 0; }
+  .project-rail button:nth-child(2n) { border-right: 0; }
   .project-rail button > span { display: none; }
   .project-rail strong, .project-rail small { grid-column: 1 / -1; }
   .project-rail button > i { left: .8rem; }
