@@ -14,7 +14,7 @@ export function Experience({ lang }: { lang: Lang }) {
         </div>
         <div className="timeline">
           {t.items.map((entry, index) => {
-            const Icon = index < 2 ? BriefcaseBusiness : GraduationCap;
+            const Icon = index < 3 ? BriefcaseBusiness : GraduationCap;
             return <motion.article key={entry.role} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .3 }} transition={{ delay: index * .08 }}><span className="timeline-index">0{index + 1}</span><div className="timeline-marker"><Icon /></div><div><time>{entry.period}</time><h3>{entry.role}</h3><strong>{entry.org}</strong><p>{entry.description}</p></div></motion.article>;
           })}
         </div>

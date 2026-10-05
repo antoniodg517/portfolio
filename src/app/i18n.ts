@@ -74,6 +74,13 @@ export const translations = {
       headline: "Experience & Education.",
       items: [
         {
+          role: "Full Stack Developer",
+          org: "Wonderlab srl - Salerno (SA)",
+          period: "Jul 2026 - Present",
+          description:
+            "Design and development of REST/JSON APIs for iOS/Android mobile apps, development and maintenance of a CMS for content management, integration of external video streaming services, database query optimization, application security and personal data protection (GDPR), definition of API contracts with the mobile developer and the client, and version control with Git/GitLab. Technologies: Ruby on Rails, MySQL, REST API, Git/GitLab.",
+        },
+        {
           role: "Web Developer",
           org: "Il Meridiano Sport - Poggiomarino (NA)",
           period: "Nov 2025 - Jan 2026",
@@ -230,6 +237,13 @@ export const translations = {
       label: "Timeline",
       headline: "Esperienza & Formazione.",
       items: [
+        {
+          role: "Full Stack Developer",
+          org: "Wonderlab srl - Salerno (SA)",
+          period: "Lug 2026 - Presente",
+          description:
+            "Progettazione e sviluppo di API REST/JSON per app mobile iOS/Android, sviluppo e manutenzione di un CMS per la gestione dei contenuti, integrazione di servizi esterni di streaming video, ottimizzazione delle query sul database, sicurezza applicativa e protezione dei dati personali (GDPR), definizione dei contratti delle API con lo sviluppatore mobile e con il cliente, versionamento con Git/GitLab. Tecnologie: Ruby on Rails, MySQL, REST API, Git/GitLab.",
+        },
         {
           role: "Web Developer",
           org: "Il Meridiano Sport - Poggiomarino (NA)",
